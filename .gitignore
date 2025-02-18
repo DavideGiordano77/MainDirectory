@@ -1,11 +1,5 @@
 # Ignora tutti i file CSV (dataset)
 *.csv
-
-# Ignora file CSV in cartelle specifiche
-Solutions/Data/*.csv
-data/*.csv
-datasets/*.csv
-
 # Ignora eventuali dump di database
 *.sql
 *.db
