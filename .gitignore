@@ -1,0 +1,39 @@
+# Ignora tutti i file CSV (dataset)
+*.csv
+
+# Ignora file CSV in cartelle specifiche
+Solutions/Data/*.csv
+data/*.csv
+datasets/*.csv
+
+# Ignora eventuali dump di database
+*.sql
+*.db
+
+# Ignora file temporanei di Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignora file di log e debug
+*.log
+logs/
+debug.log
+
+# Ignora le cartelle virtual environment di Python
+venv/
+.env/
+
+# Ignora i file di output di Jupyter Notebook
+.ipynb_checkpoints/
+
+# Ignora i file di dipendenze generate automaticamente
+node_modules/
+package-lock.json
+yarn.lock
+pip-log.txt
+
+# Ignora i file di configurazione dell'editor (VSCode, JetBrains)
+.vscode/
+.idea/
+*.iml
