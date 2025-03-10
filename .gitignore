@@ -21,11 +21,7 @@ venv/
 
 # Ignora i file di dipendenze generate automaticamente
 node_modules/
-package-lock.json
 yarn.lock
 pip-log.txt
 
-# Ignora i file di configurazione dell'editor (VSCode, JetBrains)
-.vscode/
-.idea/
-*.iml
+
