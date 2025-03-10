@@ -18,8 +18,6 @@ debug.log
 venv/
 .env/
 
-# Ignora i file di output di Jupyter Notebook
-.ipynb_checkpoints/
 
 # Ignora i file di dipendenze generate automaticamente
 node_modules/
