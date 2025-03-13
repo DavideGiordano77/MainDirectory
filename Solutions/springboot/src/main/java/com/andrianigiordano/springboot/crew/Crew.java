@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.crew;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "crew")
+@Table(name = "crew_data")
 public class Crew {
 
     @Id

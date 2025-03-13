@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.the_oscar_awards;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "the_oscar_awards")
+@Table(name = "the_oscar_awards_data")
 public class TheOscarAwards {
 
     @Id

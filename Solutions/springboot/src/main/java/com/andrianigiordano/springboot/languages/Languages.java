@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.languages;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "languages")
+@Table(name = "languages_data")
 public class Languages {
 
     @Id

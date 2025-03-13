@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.themes;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "themes")
+@Table(name = "themes_data")
 public class Themes {
 
     @Id

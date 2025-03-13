@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.countries;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "countries")
+@Table(name = "countries_data")
 public class Countries {
 
     @Id

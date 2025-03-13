@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.genres;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "genres")
+@Table(name = "genres_data")
 public class Genres {
 
     @Id

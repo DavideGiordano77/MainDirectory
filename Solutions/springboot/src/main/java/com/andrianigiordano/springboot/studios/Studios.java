@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.studios;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "studios")
+@Table(name = "studios_data")
 public class Studios {
 
     @Id
