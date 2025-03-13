@@ -16,5 +16,8 @@ public class PostersService {
         this.postersRepository = postersRepository;
     }
 
+    public List<Posters> getLatestPosters() {
+        return postersRepository.findTop6ByOrderByReleaseDateDesc();
+    }
 
 }

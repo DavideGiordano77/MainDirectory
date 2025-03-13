@@ -42,4 +42,13 @@ public class ActorsController {
         actorsService.deleteActor(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Actors>> searchActorsByName(@RequestParam String name) {
+        List<Actors> actors = actorsService.findActorsByName(name);
+        if (actors.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(actors, HttpStatus.OK);
+    }
 }

@@ -30,4 +30,8 @@ public class ActorsService {
     public void deleteActor(Long id) {
         actorsRepository.deleteById(id);
     }
+
+    public List<Actors> findActorsByName(String name) {
+        return actorsRepository.findByNameContainingIgnoreCase(name);
+    }
 }

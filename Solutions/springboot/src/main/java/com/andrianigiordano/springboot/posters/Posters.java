@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.posters;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "posters")
+@Table(name = "posters_data")
 public class Posters {
 
     @Id
