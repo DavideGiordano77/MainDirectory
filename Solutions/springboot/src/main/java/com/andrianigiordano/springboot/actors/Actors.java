@@ -3,7 +3,7 @@ package com.andrianigiordano.springboot.actors;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "actors")
+@Table(name = "actors_data")
 public class Actors {
 
     @Id
