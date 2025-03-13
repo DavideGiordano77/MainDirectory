@@ -1,13 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const app = express();
 
+// Servire file statici (CSS, immagini, JS)
+app.use(express.static('public'));
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/index', { title: 'My Class' });
-});
-router.get('pages/welcome', function(req, res, next) {
-  res.render('pages/welcome', { title: 'IUM+TWEB' });
+  res.render('pages/index', { layout: 'layouts/layouts' });
 });
 
 module.exports = router;
