@@ -1,13 +1,20 @@
-<header>
-    <nav>
-        <div class="logo">TITOLO</div>
-        <ul>
-            <li><a href="#">Sign In</a></li>
-            <li><a href="#">Create Account</a></li>
-            <li><a href="#">Films</a></li>
-            <li><a href="#">Lists</a></li>
-            <li><a href="#">Members</a></li>
-            <li><a href="#">Journal</a></li>
-        </ul>
-    </nav>
-</header>
+<nav class="navbar">
+    <div class="logo">
+        <img src="/images/wookie.jpg" alt="Wookie">
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links">
+        <a href="/signin">SIGN IN</a>
+        <a href="/create-account">CREATE ACCOUNT</a>
+        <a href="/films">FILMS</a>
+        <a href="/lists">LISTS</a>
+        <a href="/members">MEMBERS</a>
+        <a href="/journal">JOURNAL</a>
+    </div>
+
+    <div class="search">
+        <input type="text" placeholder="🔍">
+    </div>
+</nav>

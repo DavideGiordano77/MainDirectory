@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wookie</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+{{> navbar }}  <!-- Include la navbar -->
+
+<main>
+    <!-- Carosello Centrale -->
+    <section class="carousel-container">
+        <button id="prevBtn" class="carousel-btn">⬅</button>
+        <div class="carousel-slide">
+            <img src="/images/eva.jpg" alt="Evangelion 1.0">
+            <img src="/images/mickey.jpg" alt="Movie 2">
+            <img src="/images/saltburn.jpg" alt="Movie 3">
+        </div>
+        <button id="nextBtn" class="carousel-btn">➡</button>
+    </section>
+
+    <!-- Dynamic Content -->
+    {{{body}}}
+
+</main>
+
+{{> footer }}
+
+<script>
+    function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+    }
+</script>
+</body>
+</html>

@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const app = express();
 
-// Servire file statici (CSS, immagini, JS)
-app.use(express.static('public'));
-
-router.get('/', function(req, res, next) {
-  res.render('pages/index', { layout: 'layouts/layouts' });
+// Gestisce la rotta principale "/"
+router.get('/', function(req, res) {
+  res.render('pages/home', { layout: 'layouts/main' }); // Corretto layout
 });
 
 module.exports = router;
