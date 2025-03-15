@@ -7,6 +7,7 @@ var hbs = require('hbs'); // Importa Handlebars
 
 var indexRouter = require('./routes/index'); // Import del router
 var usersRouter = require('./routes/users');
+var movieRoutes = require('./routes/movies');
 
 var app = express();
 
@@ -44,4 +45,12 @@ app.use(function(err, req, res, next) {
   res.render('pages/error');
 });
 
+
+app.use(express.json());
+app.use('/api/movies', movieRoutes);
+
 module.exports = app;
+
+app.listen(8000, () => {
+  console.log('Server Express avviato su http://localhost:8000');
+});

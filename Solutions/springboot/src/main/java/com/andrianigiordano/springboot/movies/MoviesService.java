@@ -9,11 +9,22 @@ import java.util.Optional;
 @Service
 public class MoviesService {
 
-    private final MoviesRepository moviesRepository;
+    private final MoviesRepository movieRepository;
 
-    @Autowired
-    public MoviesService(MoviesRepository moviesRepository) {
-        this.moviesRepository = moviesRepository;
+    public MoviesService(MoviesRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
+
+    public List<Movies> getAllMovies() {
+        return movieRepository.findAll();
+    }
+
+    public Optional<Movies> getMovieById(Long id) {
+        return movieRepository.findById(id);
+    }
+
+    public List<Movies> searchMoviesByName(String name) {
+        return movieRepository.findByNameContainingIgnoreCase(name);
     }
 
 }
