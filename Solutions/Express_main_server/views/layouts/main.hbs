@@ -33,6 +33,37 @@
     function toggleMenu() {
         document.querySelector(".nav-links").classList.toggle("active");
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const slideContainer = document.querySelector(".carousel-slide");
+        const slides = document.querySelectorAll(".carousel-slide img");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const translateX = -currentIndex * 100;
+            slideContainer.style.transform = `translateX(${translateX}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides; // Incremente l'indice, e torna al primo quando arriva alla fine
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Decrementa l'indice e torna all'ultimo quando va oltre il primo
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
+
+        // Auto-slide ogni 5 secondi
+        setInterval(nextSlide, 5000);
+    });
 </script>
 </body>
 </html>

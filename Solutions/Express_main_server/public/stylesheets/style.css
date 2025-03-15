@@ -104,25 +104,27 @@ body {
 
 /* Carosello principale */
 .carousel-container {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
   position: relative;
-  margin-top: 0;
+  width: 100%;
+  height: 100%;  /* Imposta un'altezza fissa per il carosello */
+  overflow: hidden;  /* Nasconde le immagini che non sono visibili */
+  display: flex;
+  justify-content: center; /* Centra il carosello orizzontalmente */
 }
 
 .carousel-slide {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  height: 100vh;
+  transition: transform 0.5s ease-in-out; /* Aggiunge una transizione fluida tra le immagini */
+  align-items: center;  /* Centra verticalmente le immagini */
 }
 
 .carousel-slide img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%; /* Ogni immagine prende il 100% della larghezza del contenitore */
+  height: 100%; /* Ogni immagine prende il 100% dell'altezza del contenitore */
+  object-fit: cover; /* Mantiene l'immagine proporzionata ma la ritaglia per riempire l'area */
+  max-width: 100%;
 }
+
 
 /* Bottoni del carosello */
 .carousel-btn {
@@ -141,25 +143,4 @@ body {
 
 #nextBtn {
   right: 10px;
-}
-
-/* Secondo carosello con immagini rettangolari */
-.small-carousel-container {
-  width: 100%;
-  margin-top: 30px;
-  overflow: hidden;
-  position: relative;
-}
-
-.small-carousel-slide {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.small-carousel-slide img {
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
-  margin: 5px;
-  border-radius: 10px;
 }
