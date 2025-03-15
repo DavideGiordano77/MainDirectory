@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/posters")
-public class PostersController {
 
-    private final PostersService postersService;
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/api/posters")
+public class PosterController {
 
     @Autowired
-    public PostersController(PostersService postersService) {
-        this.postersService = postersService;
+    private PostersService postersService;
+
+    @GetMapping("/{movieId}")
+    public ResponseEntity<Posters> getPoster(@PathVariable String movieId) {
+        Optional<Posters> poster = postersService.getPosterByMovieId(movieId);
+        return poster.map(ResponseEntity::ok)
+                     .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/latest")
-    public ResponseEntity<List<Posters>> findTop6ByOrderByReleaseDateDesc() {
-        List<Posters> posters = postersService.getLatestPosters();
-        return new ResponseEntity<>(posters, HttpStatus.OK);
-    }
 }

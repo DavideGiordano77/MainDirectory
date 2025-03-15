@@ -1,13 +1,9 @@
 const Releases = require('../models/releases');
 
-// GET: Recupera una release per ID
-exports.getReleaseById = async (req, res) => {
+exports.getLatestReleases = async (req, res) => {
     try {
-        const release = await Releases.findById(req.params.id);
-        if (!release) {
-            return res.status(404).json({ message: 'Release non trovata' });
-        }
-        res.status(200).json(release);
+        const latestMovies = await Releases.find().sort({ date: -1 }).limit(10);
+        res.json(latestMovies);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

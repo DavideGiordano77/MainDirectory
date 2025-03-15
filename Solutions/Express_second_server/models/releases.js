@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const ReleasesSchema = new mongoose.Schema({
+    id: { type: int, required: true },
     country: { type: String, required: true, max: 100 },
     date: { type: Date, required: true },
     type: { type: String, required: true, max: 50 },
@@ -16,4 +17,4 @@ ReleasesSchema.virtual('releaseYear').get(function () {
 ReleasesSchema.set('toObject', { getters: true, virtuals: true });
 ReleasesSchema.set('toJSON', { getters: true, virtuals: true });
 
-module.exports = mongoose.model('Releases', ReleasesSchema);
+module.exports = mongoose.model('Releases', ReleasesSchema, 'releases_data');

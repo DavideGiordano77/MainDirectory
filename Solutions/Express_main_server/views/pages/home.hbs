@@ -8,3 +8,14 @@
 <section class="new-releases">
     <h2>New Releases</h2>
 </section>
+
+<section class="new-releases2">
+    <h2>New Releases</h2>
+    <div class="carousel">
+        {{#each movies}}
+            <a href="/movie/{{this.movie_id}}">
+                <img src="{{this.posterUrl}}" alt="{{this.title}}">
+            </a>
+        {{/each}}
+    </div>
+</section>

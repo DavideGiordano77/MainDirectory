@@ -21,4 +21,4 @@ RottenTomatoesReviewSchema.virtual('reviewYear').get(function () {
 RottenTomatoesReviewSchema.set('toObject', { getters: true, virtuals: true });
 RottenTomatoesReviewSchema.set('toJSON', { getters: true, virtuals: true });
 
-module.exports = mongoose.model('RottenTomatoesReview', RottenTomatoesReviewSchema);
+module.exports = mongoose.model('RottenTomatoesReview', RottenTomatoesReviewSchema, 'rotten_tomatoes_reviews_data');

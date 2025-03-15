@@ -9,15 +9,11 @@ import java.util.Optional;
 @Service
 public class PostersService {
 
-    private final PostersRepository postersRepository;
-
     @Autowired
-    public PostersService(PostersRepository postersRepository) {
-        this.postersRepository = postersRepository;
-    }
+    private PostersRepository postersRepository;
 
-    public List<Posters> getLatestPosters() {
-        return postersRepository.findTop6ByOrderByReleaseDateDesc();
+    public Optional<Posters> getPosterByMovieId(String movieId) {
+        return postersRepository.findByMovieId(movieId);
     }
 
 }
