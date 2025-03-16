@@ -12,7 +12,7 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/posters")
-public class PosterController {
+public class PostersController {
 
     @Autowired
     private PostersService postersService;

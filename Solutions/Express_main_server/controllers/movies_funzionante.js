@@ -1,5 +1,5 @@
 const AXIOS = require('axios');
-const JAVA_SPRING_SERVER_URL = 'http://localhost:8081/movies';
+const JAVA_SPRING_SERVER_URL = 'http://localhost:8080/movies';
 
 async function getAllMovies(req, res) {
     try {
@@ -27,7 +27,7 @@ async function searchMovies(req, res) {
     const query = req.query.name;
 
     try {
-        const response = await AXIOS.get(`http://localhost:8081/api/movies/search-movies?name=${encodeURIComponent(query)}`);
+        const response = await AXIOS.get(`http://localhost:8080/api/movies/search-movies?name=${encodeURIComponent(query)}`);
         const movies = response.data;
 
         res.render('movies', { movies });  // Render della view movies.hbs con i dati

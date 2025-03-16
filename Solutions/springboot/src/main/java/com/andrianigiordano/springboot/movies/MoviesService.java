@@ -20,7 +20,7 @@ public class MoviesService {
     }
 
     public Optional<Movies> getMovieById(Long id) {
-        return movieRepository.findById(id);
+        return movieRepository.  findById(id);
     }
 
     public List<Movies> searchMoviesByName(String name) {
