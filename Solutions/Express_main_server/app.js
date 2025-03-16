@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index'); // Import del router
 var usersRouter = require('./routes/users');
 var movieFunzionanteRoutes = require('./routes/movies_funzionante');
 const moviesRoutes = require('./routes/movies');
-
+const oscarRoutes = require('./routes/oscar');
 
 var app = express();
 
@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/movies', moviesRoutes);
+app.use('/oscar', oscarRoutes);
 
 
 // Rotta per la home
@@ -49,8 +50,6 @@ app.use(function(err, req, res, next) {
   res.render('pages/error');
 });
 
-
 app.use(express.json());
-app.use('/api/movies', movieFunzionanteRoutes);
 
 module.exports = app;

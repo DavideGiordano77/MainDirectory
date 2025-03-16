@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+{{> navbar}} <!-- Navbar in partials -->
+
+<section class="oscar-section">
+    <div class="oscar-results">
+        {{#each oscarAwards}}
+            <div class="oscar-card">
+                <h2>{{film}}</h2>
+                <p><strong>Categoria:</strong> {{category}}</p>
+                <p><strong>Nome:</strong> {{name}}</p>
+                <p><strong>Anno Film:</strong> {{year_film}}</p>
+                <p><strong>Anno Cerimonia:</strong> {{year_ceremony}}</p>
+                <p><strong>Cerimonia:</strong> {{ceremony}}</p>
+                <p><strong>Vincitore:</strong> {{#if winner}}✅ Sì{{else}}❌ No{{/if}}</p>
+            </div>
+        {{else}}
+            <p>Nessun risultato trovato.</p>
+        {{/each}}
+    </div>
+</section>
+
+{{> footer}} <!-- Footer in partials -->
+</body>
+</html>

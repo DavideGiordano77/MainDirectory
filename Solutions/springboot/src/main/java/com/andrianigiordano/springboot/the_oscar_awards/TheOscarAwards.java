@@ -6,10 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "the_oscar_awards_data")
 public class TheOscarAwards {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(name = "year_film", nullable = false)
     private Integer yearFilm;
 
@@ -22,6 +18,7 @@ public class TheOscarAwards {
     @Column(name = "category", nullable = false)
     private String category;
 
+    @Id
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -42,10 +39,6 @@ public class TheOscarAwards {
         this.name = name;
         this.film = film;
         this.winner = winner;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public Integer getYearFilm() {

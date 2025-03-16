@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/oscar-awards")
+@RequestMapping("/oscar")
 public class TheOscarAwardsController {
 
     private final TheOscarAwardsService theOscarAwardsService;
@@ -15,6 +14,12 @@ public class TheOscarAwardsController {
     @Autowired
     public TheOscarAwardsController(TheOscarAwardsService theOscarAwardsService) {
         this.theOscarAwardsService = theOscarAwardsService;
+    }
+
+    @GetMapping("/top100")
+    public List<TheOscarAwards> getTop100Oscars() {
+        // Recupera la lista dei Top 100 Oscar dal servizio
+        return theOscarAwardsService.getTop100Oscars();
     }
 
 }

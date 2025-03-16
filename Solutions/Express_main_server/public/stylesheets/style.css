@@ -191,3 +191,117 @@ body {
   font-style: italic;
   color: #ccc;
 }
+/* Sezione Oscar */
+.oscar-section {
+  padding: 50px 20px;
+  background-color: darkslategrey; /* Sfondo coerente con il tema del sito */
+  color: white;
+  text-align: center;
+  margin-top: 100px; /* Spazio per la navbar */
+}
+
+.oscar-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.oscar-card {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.oscar-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.oscar-card h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #FFD700; /* Colore dorato per il titolo */
+}
+
+.oscar-card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.oscar-card .winner {
+  font-weight: bold;
+  color: #FFD700; /* Colore dorato per il vincitore */
+}
+
+.oscar-card .category,
+.oscar-card .film-year,
+.oscar-card .ceremony-year {
+  color: #ccc;
+}
+
+.oscar-card .winner span {
+  color: #FFD700; /* Colore dorato per il vincitore */
+}
+
+.oscar-card .ceremony {
+  font-style: italic;
+  color: #ccc;
+}
+/* Footer */
+.footer {
+  background-color: #111; /* Sfondo scuro, coerente con il tema */
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  color: #FFD700; /* Colore dorato per l'effetto hover */
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-social .social-icon {
+  color: #ccc;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.footer-social .social-icon:hover {
+  color: #FFD700; /* Colore dorato per l'effetto hover */
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 20px;
+}
