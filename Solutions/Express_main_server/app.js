@@ -7,7 +7,9 @@ var hbs = require('hbs'); // Importa Handlebars
 
 var indexRouter = require('./routes/index'); // Import del router
 var usersRouter = require('./routes/users');
-var movieRoutes = require('./routes/movies_funzionante');
+var movieFunzionanteRoutes = require('./routes/movies_funzionante');
+const moviesRoutes = require('./routes/movies');
+
 
 var app = express();
 
@@ -27,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Rotte principali
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/movies', moviesRoutes);
+
 
 // Rotta per la home
 app.get('/', function(req, res) {
@@ -47,10 +51,6 @@ app.use(function(err, req, res, next) {
 
 
 app.use(express.json());
-app.use('/api/movies', movieRoutes);
+app.use('/api/movies', movieFunzionanteRoutes);
 
 module.exports = app;
-
-app.listen(8000, () => {
-  console.log('Server Express avviato su http://localhost:8000');
-});

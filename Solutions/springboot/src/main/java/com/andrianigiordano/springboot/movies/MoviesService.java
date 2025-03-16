@@ -16,7 +16,7 @@ public class MoviesService {
     }
 
     public List<Movies> getAllMovies() {
-        return movieRepository.findAll();
+        return movieRepository.findFirst100Movies();
     }
 
     public Optional<Movies> getMovieById(Long id) {

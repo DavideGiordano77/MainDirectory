@@ -1,9 +1,28 @@
-<section class="movie-details">
-    <h1>{{movie.title}}</h1>
-    <img src="{{posterUrl}}" alt="{{movie.title}}">
-    <p><strong>Paese:</strong> {{movie.country}}</p>
-    <p><strong>Data di uscita:</strong> {{movie.date}}</p>
-    <p><strong>Tipo:</strong> {{movie.type}}</p>
-    <p><strong>Rating:</strong> {{movie.rating}}</p>
-    <a href="/">Torna alla home</a>
-</section>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+{{> navbar}} <!-- Navbar in partials -->
+
+
+<div class="movies-container">
+    {{#each movies}}
+        <div class="movie-card">
+            <h2>{{this.name}}</h2>
+            <p class="movie-year">Anno: {{this.date}}</p>
+            <p>{{this.tagline}}</p>
+            <p>{{this.description}}</p>
+            <p class="movie-rating">Rating: {{this.rating}}</p>
+            <p>Durata: {{this.minute}} minuti</p>
+        </div>
+    {{/each}}
+</div>
+
+{{> footer}} <!-- Footer in partials -->
+</body>
+</html>
