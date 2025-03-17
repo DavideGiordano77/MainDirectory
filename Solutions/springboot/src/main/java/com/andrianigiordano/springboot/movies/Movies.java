@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.movies;
 
+import com.andrianigiordano.springboot.posters.Posters;
 import jakarta.persistence.*;
 
 @Entity
@@ -27,6 +28,13 @@ public class Movies {
 
     @Column(name = "rating")
     private Double rating;
+
+    @OneToOne(mappedBy = "movie", cascade = CascadeType.ALL)
+    private Posters poster;
+
+    public String getPosterUrl() {
+        return poster != null ? poster.getLink() : null;
+    }
 
     public Movies() {
     }
@@ -91,4 +99,7 @@ public class Movies {
     public void setRating(Double rating) {
         this.rating = rating;
     }
+
 }
+
+

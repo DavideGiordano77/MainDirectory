@@ -7,7 +7,6 @@ var hbs = require('hbs'); // Importa Handlebars
 
 var indexRouter = require('./routes/index'); // Import del router
 var usersRouter = require('./routes/users');
-var movieFunzionanteRoutes = require('./routes/movies_funzionante');
 const moviesRoutes = require('./routes/movies');
 const oscarRoutes = require('./routes/oscar');
 

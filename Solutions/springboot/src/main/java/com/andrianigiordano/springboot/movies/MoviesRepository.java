@@ -10,6 +10,6 @@ import java.util.List;
 public interface MoviesRepository extends JpaRepository<Movies, Long> {
     List<Movies> findByNameContainingIgnoreCase(String name);
 
-    @Query("SELECT m FROM Movies m ORDER BY m.id ASC LIMIT 100")
-    List<Movies> findFirst100Movies();
+    @Query("SELECT m FROM Movies m LEFT JOIN FETCH m.poster ORDER BY m.id LIMIT 100")
+    List<Movies> findAllWithPosters();
 }

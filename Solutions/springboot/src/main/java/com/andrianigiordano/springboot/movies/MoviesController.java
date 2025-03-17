@@ -1,8 +1,10 @@
 package com.andrianigiordano.springboot.movies;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -16,8 +18,8 @@ public class MoviesController {
     }
 
     @GetMapping("/get-all")
-    public List<Movies> getAllMovies() {
-        return movieService.getAllMovies();
+    public ResponseEntity<List<MovieDTO>> getMoviesWithPosters() {
+        return ResponseEntity.ok(movieService.getAllMoviesWithPosters());
     }
 
     @GetMapping("/get-by-id")

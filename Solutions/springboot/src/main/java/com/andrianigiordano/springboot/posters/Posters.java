@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.posters;
 
+import com.andrianigiordano.springboot.movies.Movies;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,9 @@ public class Posters {
     @Column(name = "link", nullable = false)
     private String link;
 
+    @OneToOne
+    @JoinColumn(name = "id")
+    private Movies movie;
     public Posters() {
     }
 
