@@ -1,6 +1,7 @@
 package com.andrianigiordano.springboot.movies;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -33,7 +34,8 @@ public class MoviesService {
     }
 
     public List<Movies> searchMoviesByName(String name) {
-        return movieRepository.findByNameContainingIgnoreCase(name);
+        PageRequest pageable = PageRequest.of(0, 100); // Offset 0, massimo 100 risultati
+        return movieRepository.findByNameContainingIgnoreCase(name, pageable);
     }
 
 }

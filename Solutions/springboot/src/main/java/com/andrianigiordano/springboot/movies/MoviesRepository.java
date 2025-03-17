@@ -1,14 +1,18 @@
 package com.andrianigiordano.springboot.movies;
 
+import com.andrianigiordano.springboot.actors.Actors;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface MoviesRepository extends JpaRepository<Movies, Long> {
-    List<Movies> findByNameContainingIgnoreCase(String name);
+    @Query("SELECT DISTINCT m FROM Movies m WHERE LOWER(m.name) LIKE LOWER(CONCAT('%', :name, '%'))")
+    List<Movies> findByNameContainingIgnoreCase(@Param("name") String name, Pageable pageable);
 
     @Query("SELECT m FROM Movies m LEFT JOIN FETCH m.poster ORDER BY m.id LIMIT 100")
     List<Movies> findAllWithPosters();

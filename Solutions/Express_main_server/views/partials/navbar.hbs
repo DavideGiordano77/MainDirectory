@@ -1,20 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
 <nav class="navbar">
     <div class="logo">
-        <img src="/images/wookie.jpg" alt="Wookie">
+        <a href="http://localhost:3000">
+            <img src="/images/wookie_logo.png" alt="Wookie" style="vertical-align: middle; margin-right: 10px;">
+            <span style="font-size: 24px; font-weight: bold;">Wookie</span>
+        </a>
     </div>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <div class="nav-links">
+        <a href="/actors/get-all-actors">ACTORS</a>
         <a href="/oscar/top-100">OSCAR</a>
-        <a href="/create-account">CREATE ACCOUNT</a>
         <a href="/movies/get-all-movies">MOVIES</a>
-        <a href="/lists">LISTS</a>
         <a href="/members">MEMBERS</a>
-        <a href="/journal">JOURNAL</a>
     </div>
 
-    <div class="search">
-        <input type="text" placeholder="🔍">
-    </div>
+    <form class="search" action="/search" method="GET">
+        <input type="text" name="query" placeholder="Cerca..." required>
+        <select name="type">
+            <option value="movie">Film</option>
+            <option value="actor">Attore</option>
+        </select>
+        <button type="submit">🔍</button>
+    </form>
+
 </nav>
+
+</body>
+</html>

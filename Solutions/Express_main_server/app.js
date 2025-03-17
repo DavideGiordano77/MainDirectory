@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index'); // Import del router
 var usersRouter = require('./routes/users');
 const moviesRoutes = require('./routes/movies');
 const oscarRoutes = require('./routes/oscar');
+const actorsRoutes = require('./routes/actors');
+const searchRoutes = require('./routes/search');
 
 var app = express();
 
@@ -30,7 +32,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/movies', moviesRoutes);
 app.use('/oscar', oscarRoutes);
-
+app.use('/actors', actorsRoutes);
+app.use('/search', searchRoutes);
 
 // Rotta per la home
 app.get('/', function(req, res) {

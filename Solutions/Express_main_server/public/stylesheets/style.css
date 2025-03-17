@@ -154,13 +154,6 @@ body {
   padding: 20px;
   justify-content: center;
 }
-.movie-poster {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
 
 .movie-card {
   background-color: rgba(0, 0, 0, 0.8);
@@ -176,18 +169,7 @@ body {
   transform: translateY(-10px); /* Effetto al passaggio del mouse */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
-.movie-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-.movie-poster {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
+
 
 .movie-card h2 {
   font-size: 18px;
@@ -199,15 +181,16 @@ body {
   font-size: 14px;
   margin: 5px 0;
 }
-.movie-card .movie-year {
-  font-style: italic;
-  color: #ccc;
-}
+
 .movie-card .movie-rating {
   font-weight: bold;
   color: #FFD700; /* Colore dorato per il rating */
 }
 
+.movie-card .movie-year {
+  font-style: italic;
+  color: #ccc;
+}
 /* Sezione Oscar */
 .oscar-section {
   padding: 50px 20px;

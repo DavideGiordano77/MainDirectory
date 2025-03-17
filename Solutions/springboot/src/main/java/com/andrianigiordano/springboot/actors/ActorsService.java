@@ -1,5 +1,7 @@
 package com.andrianigiordano.springboot.actors;
 
+import com.andrianigiordano.springboot.movies.Movies;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.List;
@@ -15,23 +17,13 @@ public class ActorsService {
         this.actorsRepository = actorsRepository;
     }
 
-    public Actors saveActor(Actors actor) {
-        return actorsRepository.save(actor);
-    }
-
-    public Optional<Actors> getActorById(Long id) {
-        return actorsRepository.findById(id);
-    }
-
     public List<Actors> getAllActors() {
-        return actorsRepository.findAll();
+        return actorsRepository.findFirst100Actors();
     }
 
-    public void deleteActor(Long id) {
-        actorsRepository.deleteById(id);
+    public List<Actors> searchActorsByName(String query) {
+        PageRequest pageable = PageRequest.of(0, 100); // Offset 0, massimo 100 risultati
+        return actorsRepository.findByNameContainingIgnoreCase(query, pageable);
     }
 
-    public List<Actors> findActorsByName(String name) {
-        return actorsRepository.findByNameContainingIgnoreCase(name);
-    }
 }
