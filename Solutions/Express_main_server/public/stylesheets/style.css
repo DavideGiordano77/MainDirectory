@@ -279,13 +279,32 @@ body {
 
 
 /* Footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garantisce che il body occupi almeno l'intera altezza della finestra */
+}
+
+/* Posiziona il footer in fondo */
 .footer {
-  background-color: #111; /* Sfondo scuro, coerente con il tema */
+  margin-top: auto; /* Spinge il footer verso il fondo */
+  background-color: #111;
   color: white;
-  padding: 30px 20px;
+  padding: 20px;
   text-align: center;
-  font-size: 14px;
-  margin-top: 40px;
+  width: 100%;
+}
+
+/* Se vuoi un footer fisso in basso (sempre visibile), usa questa regola */
+.footer.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
 .footer-content {
@@ -428,4 +447,42 @@ body {
 .movie-card:hover, .actor-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.new-releases {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.new-releases h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center; /* Centra il titolo */
+  font-family: 'Arial', sans-serif; /* Cambia il font (puoi sostituire con un altro font) */
+  font-weight: bold; /* Puoi anche scegliere un peso diverso */
+}
+
+.new-releases-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.new-release-box {
+  width: 200px;
+  text-align: center;
+}
+
+.new-release-box img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.new-release-box p {
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif; /* Cambia anche il font del testo sotto l'immagine */
 }
