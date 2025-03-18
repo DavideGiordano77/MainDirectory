@@ -1,0 +1,97 @@
+<section class = "home">
+    <section class="carousel-container">
+        <button id="prevBtn" class="carousel-btn">⬅</button> <!-- Pulsante Precedente -->
+        <div class="carousel-slide">
+            <img src="/images/eva.jpg" alt="Evangelion 1.0">
+            <img src="/images/mickey.jpg" alt="Movie 2">
+            <img src="/images/saltburn.jpg" alt="Movie 3">
+        </div>
+        <button id="nextBtn" class="carousel-btn">➡</button> <!-- Pulsante Successivo -->
+    </section>
+
+
+    <!-- Box per Nuove Uscite -->
+<section class="new-releases">
+    <h2>Le scelte della redazione</h2>
+    <div class="new-releases-container">
+        <div class="new-release-box">
+            <img src="/images/br.jpg" alt="Bladerunner 2049">
+            <p>Film 1</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/akira.jpg" alt="Akira">
+            <p>Film 2</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/i.jpg" alt="Nuova Uscita 3">
+            <p>Film 3</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/pd.jpg" alt="Perfect Days">
+            <p>Film 4</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/shrek.jpg" alt="Nuova Uscita 5">
+            <p>Film 5</p>
+        </div>
+
+        <div class="new-release-box">
+            <img src="/images/br.jpg" alt="Bladerunner 2049">
+            <p>Film 1</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/akira.jpg" alt="Akira">
+            <p>Film 2</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/i.jpg" alt="Nuova Uscita 3">
+            <p>Film 3</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/pd.jpg" alt="Perfect Days">
+            <p>Film 4</p>
+        </div>
+        <div class="new-release-box">
+            <img src="/images/tobey_maguire.jpg" alt="Nuova Uscita 5">
+            <p>Film 5</p>
+        </div>
+        </div>
+    </section>
+</section>
+
+<script>
+    function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const slideContainer = document.querySelector(".carousel-slide");
+        const slides = document.querySelectorAll(".carousel-slide img");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const translateX = -currentIndex * 100;
+            slideContainer.style.transform = `translateX(${translateX}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides; // Incremente l'indice, e torna al primo quando arriva alla fine
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Decrementa l'indice e torna all'ultimo quando va oltre il primo
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
+
+        // Auto-slide ogni 5 secondi
+        setInterval(nextSlide, 5000);
+    });
+</script>
