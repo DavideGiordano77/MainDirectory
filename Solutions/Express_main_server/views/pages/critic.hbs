@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{criticName}} - Recensioni</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+{{> navbar}} <!-- Include la navbar -->
+
+<div class="critic-details-container">
+    <h1>Recensioni di {{criticName}}</h1>
+
+    <div class="movies-grid">
+        {{#each movies}}
+            <div class="movie-card">
+                <h2>{{this.movie_title}}</h2>
+                <p><strong>Voto:</strong> {{this.review_score}}</p>
+                <p><strong>Recensione:</strong> {{this.review_content}}</p>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+{{> footer}} <!-- Include il footer -->
+
+</body>
+</html>

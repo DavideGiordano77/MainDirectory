@@ -11,6 +11,9 @@ const moviesRoutes = require('./routes/movies');
 const oscarRoutes = require('./routes/oscar');
 const actorsRoutes = require('./routes/actors');
 const searchRoutes = require('./routes/search');
+const memberRoutes = require('./routes/members');
+const criticRoutes = require('./routes/critic'); // Assicurati che il percorso del router sia corretto
+
 
 
 
@@ -36,6 +39,8 @@ app.use('/movies', moviesRoutes);
 app.use('/oscar', oscarRoutes);
 app.use('/actors', actorsRoutes);
 app.use('/search', searchRoutes);
+app.use('/members', memberRoutes);
+app.use('/critic', criticRoutes);
 
 
 

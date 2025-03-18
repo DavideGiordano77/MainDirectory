@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critici</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+{{> navbar}} <!-- Include la navbar -->
+
+<div class="members-container">
+    <h1>Critici</h1>
+    <div class="critics-grid">
+        {{#each critics}} <!-- 'critics' è il nome passato dal controller -->
+            <div class="critic-card">
+                <div class="critic-image">
+                    <img src="/images/default.jpg" alt="{{this}}">
+                </div>
+                <!-- Link per ogni critico, che porta alla pagina del critico -->
+                <a href="/members/{{this}}" class="critic-name">{{this}}</a> <!-- 'this' è il nome del critico -->
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+{{> footer}} <!-- Include il footer -->
+
+<script src="/scripts/members.js"></script> <!-- Aggiungi il JS per gestire eventuali interazioni, se necessario -->
+
+</body>
+</html>

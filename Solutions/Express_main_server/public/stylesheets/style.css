@@ -486,3 +486,106 @@ body {
   font-weight: bold;
   font-family: 'Arial', sans-serif; /* Cambia anche il font del testo sotto l'immagine */
 }
+
+
+.movie-poster {
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+.movie-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 20px 20px; /* Aggiunto padding superiore per lasciare spazio alla navbar */
+}
+
+.movie-card-large {
+  display: flex;
+  flex-direction: row; /* Disposizione orizzontale */
+  align-items: flex-start;
+  max-width: 800px;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: left;
+}
+
+.movie-poster-large {
+  width: 200px; /* Rimpicciolito */
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px; /* Distanza tra immagine e testo */
+}
+
+.movie-info {
+  flex: 1; /* Occupa lo spazio rimanente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-info h1 {
+  margin-top: 0;
+}
+
+.back-button {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 15px;
+  background: darkslategrey;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  max-width: 200px;
+}
+
+.back-button:hover {
+  background: darkslategrey;
+}
+
+.members-container {
+  margin-top: 120px;
+}
+
+/* Griglia per i critici */
+.critics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Card per ogni critico */
+.critic-card {
+  text-align: center;
+  width: 150px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Immagine del critico (cerchio) */
+.critic-image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Crea il cerchio */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Nome del critico */
+.critic-name {
+  font-size: 14px;
+  font-weight: bold;
+  color:#FFD700;
+}
