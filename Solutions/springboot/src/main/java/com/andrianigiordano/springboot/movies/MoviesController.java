@@ -1,6 +1,8 @@
 package com.andrianigiordano.springboot.movies;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +24,11 @@ public class MoviesController {
         return ResponseEntity.ok(movieService.getAllMoviesWithPosters());
     }
 
-    @GetMapping("/get-by-id")
-    public Optional<Movies> getMovieById(@RequestParam Long id) {
-        return movieService.getMovieById(id);
+    @GetMapping("/get-movie-by-id")
+    public ResponseEntity<MovieDTO> getMovieDetails(@RequestParam Long movieId) {
+        return movieService.getMovieById(movieId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 
     @GetMapping("/search-movies")

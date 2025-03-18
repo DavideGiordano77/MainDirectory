@@ -21,7 +21,7 @@ public class MoviesService {
                         movie.getDate(),
                         movie.getTagline(),
                         movie.getDescription(),
-                        movie.getPosterUrl(), // Controlla che venga passato correttamente
+                        movie.getPosterUrl(),
                         movie.getRating(),
                         movie.getMinute()
                 ))
@@ -29,8 +29,19 @@ public class MoviesService {
     }
 
 
-    public Optional<Movies> getMovieById(Long id) {
-        return movieRepository.  findById(id);
+
+    public Optional<MovieDTO> getMovieById(Long id) {
+        return movieRepository.findMovieById(id)
+                .map(movie -> new MovieDTO(
+                        movie.getId(),
+                        movie.getName(),
+                        movie.getDate(),
+                        movie.getTagline(),
+                        movie.getDescription(),
+                        movie.getPosterUrl(),
+                        movie.getRating(),
+                        movie.getMinute()
+                ));
     }
 
     public List<Movies> searchMoviesByName(String name) {

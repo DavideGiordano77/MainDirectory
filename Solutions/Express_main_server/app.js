@@ -12,6 +12,8 @@ const oscarRoutes = require('./routes/oscar');
 const actorsRoutes = require('./routes/actors');
 const searchRoutes = require('./routes/search');
 
+
+
 var app = express();
 
 // Registra la cartella dei partials
@@ -34,6 +36,8 @@ app.use('/movies', moviesRoutes);
 app.use('/oscar', oscarRoutes);
 app.use('/actors', actorsRoutes);
 app.use('/search', searchRoutes);
+
+
 
 // Rotta per la home
 app.get('/', function(req, res) {

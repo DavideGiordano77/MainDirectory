@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+
 {{> navbar}} <!-- Navbar in partials -->
 
 <div class="movies-container">
     {{#each movies}}
         <div class="movie-card">
-            <img class="movie-poster" src="{{this.posterUrl}}" alt="{{this.title}}">
+            <img class="movie-poster" src="{{this.posterUrl}}" alt="{{this.title}}" data-id="{{this.id}}">
             <h2>{{this.title}}</h2>
             <p class="movie-year">Anno: {{this.date}}</p>
             <p><strong>Tagline:</strong> {{this.tagline}}</p>
@@ -23,5 +24,9 @@
 </div>
 
 {{> footer}} <!-- Footer in partials -->
+
+<!-- Importazione del file JavaScript -->
+<script src="/javascripts/movies.js"></script>
+
 </body>
 </html>

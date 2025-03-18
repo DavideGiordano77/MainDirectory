@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{movie.title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+{{> navbar}} <!-- Include la navbar -->
+
+<div class="movie-container">
+    <div class="movie-card-large" data-id="{{movie.id}}">
+        <img class="movie-poster-large" src="{{movie.posterUrl}}" alt="{{movie.title}}">
+        <div class="movie-info">
+            <h1>{{movie.title}}</h1>
+            <p class="movie-year"><strong>Anno:</strong> {{movie.date}}</p>
+            <p class="movie-tagline"><strong>Tagline:</strong> {{movie.tagline}}</p>
+            <p class="movie-description"><strong>Trama:</strong> {{movie.description}}</p>
+            <p class="movie-rating"><strong>Rating:</strong> {{movie.rating}}</p>
+            <p class="movie-duration"><strong>Durata:</strong> {{movie.minute}} minuti</p>
+        </div>
+    </div>
+</div>
+
+<a href="/" class="back-button">Torna alla lista</a>
+
+{{> footer}} <!-- Include il footer -->
+
+<!-- Importazione del file JavaScript -->
+<script src="/javascripts/movie_details.js"></script>
+
+</body>
+</html>
