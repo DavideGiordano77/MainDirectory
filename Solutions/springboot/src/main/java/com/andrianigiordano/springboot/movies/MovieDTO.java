@@ -6,7 +6,7 @@ public class MovieDTO {
 
     private String title;
 
-    private String date;
+    private int date;
 
     private String posterUrl;
 
@@ -19,7 +19,7 @@ public class MovieDTO {
 
 
 
-    public MovieDTO(Long id, String title, String date, String tagline, String description, String posterUrl, Double rating, Integer minute) {
+    public MovieDTO(Long id, String title, int date, String tagline, String description, String posterUrl, Double rating, Integer minute) {
         this.id = id;
         this.title = title;
         this.date = date;
@@ -48,11 +48,11 @@ public class MovieDTO {
         this.title = title;
     }
 
-    public String getDate() {
+    public int getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(int date) {
         this.date = date;
     }
 

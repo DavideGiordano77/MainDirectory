@@ -1,6 +1,8 @@
 package com.andrianigiordano.springboot.the_oscar_awards;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +18,7 @@ public class TheOscarAwardsService {
     }
 
     public List<TheOscarAwards> getTop100Oscars() {
-        return theOscarAwardsRepository.findTop100ByOrderByYearFilmDesc(); // Ottieni i Top 100 in ordine crescente di ID
+        return theOscarAwardsRepository.findTheOscarAwards();
     }
 
 }

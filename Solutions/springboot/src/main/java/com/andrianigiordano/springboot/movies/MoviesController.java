@@ -35,4 +35,9 @@ public class MoviesController {
     public List<Movies> searchMoviesByName(@RequestParam String name) {
         return movieService.searchMoviesByName(name);
     }
+
+    @GetMapping("/top100")
+    public List<MovieDTO> oscarsTop100() {
+        return movieService.oscarsTop100();
+    }
 }

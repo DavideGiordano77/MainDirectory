@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wookie</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
 <body>
 {{> navbar}}
 
@@ -10,7 +18,10 @@
             {{#each movies}}
                 <div class="movie-card">
                     <h2>{{this.title}}</h2>
-                    <p>Anno: {{this.year}}</p>
+                    <p><strong></strong> <img src="{{posterUrl}}" alt="Poster di {{film}}" /></p>
+                    <p>{{this.name}}</p>
+                    <p>{{this.tagline}}</p>
+                    <p>{{this.date}}</p>
                 </div>
             {{/each}}
         </div>
@@ -37,3 +48,4 @@
 
 {{> footer}}
 </body>
+</html>

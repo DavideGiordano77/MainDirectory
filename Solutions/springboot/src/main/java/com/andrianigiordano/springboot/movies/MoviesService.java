@@ -28,6 +28,22 @@ public class MoviesService {
                 .collect(Collectors.toList());
     }
 
+    public List<MovieDTO> oscarsTop100() {
+        return movieRepository.getOscarsIn2024()
+                .stream()
+                .map(movie -> new MovieDTO(
+                        movie.getId(),
+                        movie.getName(),
+                        movie.getDate(),
+                        movie.getTagline(),
+                        movie.getDescription(),
+                        movie.getPosterUrl(),
+                        movie.getRating(),
+                        movie.getMinute()
+                ))
+                .collect(Collectors.toList());
+    }
+
 
 
     public Optional<MovieDTO> getMovieById(Long id) {
@@ -48,6 +64,5 @@ public class MoviesService {
         PageRequest pageable = PageRequest.of(0, 100); // Offset 0, massimo 100 risultati
         return movieRepository.findByNameContainingIgnoreCase(name, pageable);
     }
-
 }
 

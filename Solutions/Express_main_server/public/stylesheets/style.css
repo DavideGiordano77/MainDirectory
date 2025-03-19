@@ -213,71 +213,6 @@ body {
   color: #ccc;
 }
 
-/* Sezione Oscar */
-.oscar-section {
-  padding: 50px 20px;
-  background-color: darkslategrey; /* Sfondo coerente con il tema del sito */
-  color: white;
-  text-align: center;
-  margin-top: 100px; /* Spazio per la navbar */
-}
-
-.oscar-results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.oscar-card {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  width: 300px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.oscar-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-.oscar-card h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  color: #FFD700; /* Colore dorato per il titolo */
-}
-
-.oscar-card p {
-  font-size: 14px;
-  margin: 5px 0;
-}
-
-.oscar-card .winner {
-  font-weight: bold;
-  color: #FFD700; /* Colore dorato per il vincitore */
-}
-
-.oscar-card .category,
-.oscar-card .film-year,
-.oscar-card .ceremony-year {
-  color: #ccc;
-}
-
-.oscar-card .winner span {
-  color: #FFD700; /* Colore dorato per il vincitore */
-}
-
-.oscar-card .ceremony {
-  font-style: italic;
-  color: #ccc;
-}
-
-
 /* Footer */
 body {
   display: flex;
@@ -487,105 +422,85 @@ body {
   font-family: 'Arial', sans-serif; /* Cambia anche il font del testo sotto l'immagine */
 }
 
-
-.movie-poster {
-  transition: transform 0.3s ease-in-out;
-}
-
-.movie-poster:hover {
-  transform: scale(1.05);
-}
-.movie-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 120px 20px 20px; /* Aggiunto padding superiore per lasciare spazio alla navbar */
-}
-
-.movie-card-large {
-  display: flex;
-  flex-direction: row; /* Disposizione orizzontale */
-  align-items: flex-start;
-  max-width: 800px;
-  background: #222;
+/* Stile generali per la sezione */
+.oscar-section {
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  background-color: darkslategrey;
   color: white;
-  text-align: left;
-}
-
-.movie-poster-large {
-  width: 200px; /* Rimpicciolito */
-  height: auto;
-  border-radius: 10px;
-  margin-right: 20px; /* Distanza tra immagine e testo */
-}
-
-.movie-info {
-  flex: 1; /* Occupa lo spazio rimanente */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.movie-info h1 {
-  margin-top: 0;
-}
-
-.back-button {
-  display: block;
   text-align: center;
-  margin: 20px auto;
-  padding: 10px 15px;
-  background: darkslategrey;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+  margin-top: 100px; /* Spazio per la navbar */
+}
+
+/* Titolo della categoria */
+.category-title {
+  font-size: 2rem;
   font-weight: bold;
-  max-width: 200px;
+  margin-bottom: 10px;
+  color: #111;
+  text-transform: uppercase; /* Rendere il testo in maiuscolo */
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-top: 20px;
 }
 
-.back-button:hover {
-  background: darkslategrey;
-}
-
-.members-container {
-  margin-top: 120px;
-}
-
-/* Griglia per i critici */
-.critics-grid {
+/* Layout delle card */
+.oscar-results {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
+  flex-wrap: nowrap;
+  gap: 20px;
+  justify-content: flex-start; /* Allinea le card a sinistra */
+  margin-top: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
 }
 
-/* Card per ogni critico */
-.critic-card {
-  text-align: center;
-  width: 150px;
-  padding: 15px;
-  border-radius: 10px;
+/* Singola card */
+.oscar-card {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
+  padding: 15px;
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+  min-width: 180px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  text-align: center;
+  /* Aggiungi bordi morbidi e margini tra le card */
 }
 
-/* Immagine del critico (cerchio) */
-.critic-image img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%; /* Crea il cerchio */
-  object-fit: cover;
-  margin-bottom: 10px;
+.oscar-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Nome del critico */
-.critic-name {
-  font-size: 14px;
+/* Immagine del poster */
+.oscar-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Spaziatura per ogni card */
+.oscar-card p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.oscar-card strong {
   font-weight: bold;
-  color:#FFD700;
+}
+
+/* Responsività per schermi più piccoli */
+@media (max-width: 768px) {
+  .oscar-results {
+    flex-direction: column;
+    align-items: center;
+  }
+  .oscar-card {
+    width: 80%;
+    margin-bottom: 15px;
+  }
 }

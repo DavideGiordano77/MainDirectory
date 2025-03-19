@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
+    <title>Wookie</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
 {{> navbar}} <!-- Navbar in partials -->
-
 <section class="oscar-section">
-    <div class="oscar-results">
-        {{#each oscarAwards}}
-            <div class="oscar-card">
-                <h2>{{film}}</h2>
-                <p><strong>Categoria:</strong> {{category}}</p>
-                <p><strong>Nome:</strong> {{name}}</p>
-                <p><strong>Anno Film:</strong> {{year_film}}</p>
-                <p><strong>Anno Cerimonia:</strong> {{year_ceremony}}</p>
-                <p><strong>Cerimonia:</strong> {{ceremony}}</p>
-                <p><strong>Vincitore:</strong> {{#if winner}}✅ Sì{{else}}❌ No{{/if}}</p>
+    {{#each groupedAwards}}
+        <div class="category-group">
+            <h2 class="category-title">{{@key}}</h2> <!-- Nome della categoria -->
+            <div class="oscar-results">
+                {{#each this}}
+                    <div class="oscar-card">
+                        <h3>{{film}}</h3>
+                        {{#if posterUrl}}
+                            <p><strong>Poster:</strong> <img src="{{posterUrl}}" alt="Poster di {{film}}" /></p>
+                        {{else}}
+                            <p><strong>Poster:</strong> <img src="/images/eva.jpg" alt="Poster di default" /></p>
+                        {{/if}}
+                        <p><strong>Nome:</strong> {{name}}</p>
+                        <p><strong>Vincitore:</strong> {{#if winner}}✅ Sì{{else}}❌ No{{/if}}</p>
+                    </div>
+                {{/each}}
             </div>
-        {{else}}
-            <p>Nessun risultato trovato.</p>
-        {{/each}}
-    </div>
+        </div>
+    {{else}}
+        <p>Nessun risultato trovato.</p>
+    {{/each}}
 </section>
 
 {{> footer}} <!-- Footer in partials -->

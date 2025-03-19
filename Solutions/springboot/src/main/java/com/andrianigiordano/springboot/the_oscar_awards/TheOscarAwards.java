@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class TheOscarAwards {
 
     @Column(name = "year_film", nullable = false)
-    private Integer yearFilm;
+    private int yearFilm;
 
     @Column(name = "year_ceremony", nullable = false)
     private Integer yearCeremony;
@@ -23,7 +23,7 @@ public class TheOscarAwards {
     private String name;
 
     @Column(name = "film", nullable = false)
-    private String film;
+    private String film_name;
 
     @Column(name = "winner", nullable = false)
     private Boolean winner;
@@ -31,21 +31,21 @@ public class TheOscarAwards {
     public TheOscarAwards() {
     }
 
-    public TheOscarAwards(Integer yearFilm, Integer yearCeremony, Integer ceremony, String category, String name, String film, Boolean winner) {
+    public TheOscarAwards(int yearFilm, Integer yearCeremony, Integer ceremony, String category, String name, String film, Boolean winner) {
         this.yearFilm = yearFilm;
         this.yearCeremony = yearCeremony;
         this.ceremony = ceremony;
         this.category = category;
         this.name = name;
-        this.film = film;
+        this.film_name = film;
         this.winner = winner;
     }
 
-    public Integer getYearFilm() {
+    public int getYearFilm() {
         return yearFilm;
     }
 
-    public void setYearFilm(Integer yearFilm) {
+    public void setYearFilm(int yearFilm) {
         this.yearFilm = yearFilm;
     }
 
@@ -82,11 +82,11 @@ public class TheOscarAwards {
     }
 
     public String getFilm() {
-        return film;
+        return film_name;
     }
 
     public void setFilm(String film) {
-        this.film = film;
+        this.film_name = film;
     }
 
     public Boolean getWinner() {

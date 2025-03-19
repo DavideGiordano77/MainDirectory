@@ -15,7 +15,7 @@ public class Movies {
     private String name;
 
     @Column(name = "date")
-    private String date;
+    private int date;
 
     @Column(name = "tagline")
     private String tagline;
@@ -39,7 +39,7 @@ public class Movies {
     public Movies() {
     }
 
-    public Movies(String name, String date, String tagline, String description, Integer minute, Double rating) {
+    public Movies(String name, int date, String tagline, String description, Integer minute, Double rating) {
         this.name = name;
         this.date = date;
         this.tagline = tagline;
@@ -60,11 +60,11 @@ public class Movies {
         this.name = name;
     }
 
-    public String getDate() {
+    public int getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(int date) {
         this.date = date;
     }
 
