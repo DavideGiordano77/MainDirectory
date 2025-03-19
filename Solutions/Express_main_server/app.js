@@ -12,7 +12,6 @@ const oscarRoutes = require('./routes/oscar');
 const actorsRoutes = require('./routes/actors');
 const searchRoutes = require('./routes/search');
 const memberRoutes = require('./routes/members');
-const criticRoutes = require('./routes/critic'); // Assicurati che il percorso del router sia corretto
 
 
 
@@ -40,8 +39,6 @@ app.use('/oscar', oscarRoutes);
 app.use('/actors', actorsRoutes);
 app.use('/search', searchRoutes);
 app.use('/members', memberRoutes);
-app.use('/critic', criticRoutes);
-
 
 
 // Rotta per la home

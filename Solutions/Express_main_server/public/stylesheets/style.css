@@ -362,28 +362,6 @@ body {
   margin-bottom: 20px;
 }
 
-.movies-container, .actors-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.movie-card, .actor-card {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px;
-}
-
-.movie-card:hover, .actor-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
 .new-releases {
   margin-top: 40px;
   text-align: center;
@@ -504,3 +482,180 @@ body {
     margin-bottom: 15px;
   }
 }
+
+.movies-container, .actors-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.movie-card, .actor-card {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+}
+
+.movie-card:hover, .actor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster {
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+.movie-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 20px 20px; /* Aggiunto padding superiore per lasciare spazio alla navbar */
+}
+
+.movie-card-large {
+  display: flex;
+  flex-direction: row; /* Disposizione orizzontale */
+  align-items: flex-start;
+  max-width: 800px;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: left;
+}
+
+.movie-poster-large {
+  width: 200px; /* Rimpicciolito */
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px; /* Distanza tra immagine e testo */
+}
+
+.movie-info {
+  flex: 1; /* Occupa lo spazio rimanente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-info h1 {
+  margin-top: 0;
+}
+
+.back-button {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 15px;
+  background: darkslategrey;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  max-width: 200px;
+}
+
+.back-button:hover {
+  background: darkslategrey;
+}
+
+.members-container {
+  margin-top: 120px;
+}
+
+/* Griglia per i critici */
+.critics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Card per ogni critico */
+.critic-card {
+  text-align: center;
+  width: 150px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Immagine del critico (cerchio) */
+.critic-image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Crea il cerchio */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Nome del critico */
+.critic-name {
+  font-size: 14px;
+  font-weight: bold;
+  color:#FFD700;
+}
+
+.critic-container {
+  margin-top: 120px;
+}
+
+/* Contenitore per le recensioni */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra le recensioni */
+}
+
+/* Ogni recensione */
+li {
+  background-color: #3e5c5c; /* Colore più chiaro di darkslategrey */
+  color: white; /* Font bianco */
+  border: 1px solid #ddd; /* Aggiungi un bordo grigio chiaro */
+  margin-bottom: 20px; /* Spazio tra le recensioni */
+  padding: 15px;
+  border-radius: 8px; /* Angoli arrotondati per le recensioni */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera per un effetto sollevato */
+  width: 80%; /* Rendiamo il contenitore della recensione più piccolo */
+  max-width: 800px; /* Limite massimo per il contenitore */
+}
+
+/* Stile per il titolo del film */
+li h3 {
+  font-size: 1.5em;
+  margin: 0 0 10px 0; /* Spazio sotto il titolo */
+  color: #ffffff; /* Titolo bianco */
+}
+
+/* Stile per i dettagli della recensione */
+li p {
+  margin: 5px 0;
+  color: #ddd; /* Colore del testo per i dettagli (più chiaro del bianco) */
+  line-height: 1.6; /* Altezza della linea per una lettura più comoda */
+}
+
+/* Dettagli speciali (Tipo di recensione, punteggio, data) */
+li p strong {
+  color: #ffffff; /* Colore per le etichette (bianco) */
+}
+
+/* Separatore per recensioni */
+li + li {
+  border-top: 2px solid #eee; /* Separatore visibile tra recensioni */
+  margin-top: 20px;
+}
+

@@ -1,13 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript caricato!");
 
     // Seleziona tutte le card dei critici
     const criticCards = document.querySelectorAll(".critic-card");
 
     criticCards.forEach(card => {
         card.addEventListener("click", function () {
-            const criticName = this.dataset.critic; // Prende il nome del critico dal data attribute
-            window.location.href = `/members/${encodeURIComponent(criticName)}`; // Reindirizza alla pagina dei dettagli del critico
+            // Ottieni il nome del critico dal data attribute
+            const criticName = this.dataset.critic_name;
+
+            // Assicurati che criticName non sia undefined
+            if (criticName) {
+                const encodedCriticName = encodeURIComponent(criticName);  // Codifica correttamente l'URL
+                window.location.href = `/members/${encodedCriticName}`;  // Reindirizza alla pagina dei dettagli del critico
+            } else {
+                console.log("Nome critico non trovato!");
+            }
         });
     });
 });

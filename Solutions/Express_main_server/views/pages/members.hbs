@@ -12,22 +12,37 @@
 
 <div class="members-container">
     <h1>Critici</h1>
+
+    <!-- Sezione per i Top Critics -->
+    <h2>Top Critics</h2>
     <div class="critics-grid">
-        {{#each critics}} <!-- 'critics' è il nome passato dal controller -->
+        {{#each topCritics}}
+            <div class="critic-card top-critic">
+                <div class="critic-image">
+                    <img src="/images/default.jpg" alt="{{this}}">
+                </div>
+                <a href="/members/{{this}}" class="critic-name">{{this}}</a>
+            </div>
+        {{/each}}
+    </div>
+
+    <!-- Sezione per gli altri Critics -->
+    <h2>Altri Critics</h2>
+    <div class="critics-grid">
+        {{#each allCritics}}
             <div class="critic-card">
                 <div class="critic-image">
                     <img src="/images/default.jpg" alt="{{this}}">
                 </div>
-                <!-- Link per ogni critico, che porta alla pagina del critico -->
-                <a href="/members/{{this}}" class="critic-name">{{this}}</a> <!-- 'this' è il nome del critico -->
+                <a href="/members/{{this}}" class="critic-name">{{this}}</a>
             </div>
         {{/each}}
     </div>
 </div>
 
-{{> footer}} <!-- Include il footer -->
+{{> footer}}
 
-<script src="/scripts/members.js"></script> <!-- Aggiungi il JS per gestire eventuali interazioni, se necessario -->
+<script src="/javascripts/members.js"></script>
 
 </body>
 </html>

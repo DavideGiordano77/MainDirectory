@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 });
 
-// Rotta per ottenere recensioni con punteggio tra 8 e 10
+
 router.get('/members', async (req, res, next) => {
   try {
     const results = await MEMBERS_REVIEW_CONTROLLER.getMembers(req, res);
@@ -20,6 +20,16 @@ router.get('/members', async (req, res, next) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+router.get('/members/:critic_name', async (req, res, next) => {
+  try {
+    const results = await MEMBERS_REVIEW_CONTROLLER.getCriticDetails(req, res);
+    res.json(results);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 // Esportiamo il router
 module.exports = router;

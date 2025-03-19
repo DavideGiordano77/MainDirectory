@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{criticName}} - Recensioni</title>
+    <title>Critici</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
 
 {{> navbar}} <!-- Include la navbar -->
-
-<div class="critic-details-container">
+<div class="critic-container">
     <h1>Recensioni di {{criticName}}</h1>
 
-    <div class="movies-grid">
-        {{#each movies}}
-            <div class="movie-card">
-                <h2>{{this.movie_title}}</h2>
-                <p><strong>Voto:</strong> {{this.review_score}}</p>
-                <p><strong>Recensione:</strong> {{this.review_content}}</p>
-            </div>
-        {{/each}}
-    </div>
+<main>
+    {{#if movies.reviews}}
+        <ul>
+            {{#each movies.reviews}}
+                <li>
+                    <h3>{{this.movie_title}}</h3>
+                    <p><strong>Tipo di recensione:</strong> {{this.review_type}}</p>
+                    <p><strong>Punteggio:</strong> {{this.review_score}}</p>
+                    <p><strong>Data recensione:</strong> {{this.review_date}}</p>
+                    <p><strong>Contenuto recensione:</strong> {{this.review_content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>Non sono state trovate recensioni per questo critico.</p>
+    {{/if}}
+</main>
 </div>
-
-{{> footer}} <!-- Include il footer -->
+{{> footer}}
 
 </body>
 </html>

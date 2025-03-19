@@ -8,14 +8,10 @@ const RottenTomatoesReviewSchema = new mongoose.Schema({
     publisher_name: { type: String, required: true, max: 100 },
     review_type: { type: String, required: true, enum: ['Fresh', 'Rotten'] },
     review_score: { type: Number, min: 0, max: 10 },
-    review_date: { type: Date, required: true },
+    review_date: { type: String, required: true },
     review_content: { type: String, required: true }
 });
 
-// Virtual per ottenere l'anno della recensione
-RottenTomatoesReviewSchema.virtual('reviewYear').get(function () {
-    return this.review_date.getFullYear();
-});
 
 // Imposta la proprietà virtuale nei risultati JSON e Object
 RottenTomatoesReviewSchema.set('toObject', { getters: true, virtuals: true });
