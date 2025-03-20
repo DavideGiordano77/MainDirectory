@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wookie</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script defer src="/javascripts/actors_info.js"></script> <!-- Collegamento allo script -->
+</head>
+<body>
+
+{{> navbar}}
+
+<div class="actors-info-container">
+    <h1>{{name}}</h1>
+    <div class="film-card-container">
+        {{#if actor.length}}
+            {{#each actor}}
+                <div class="oscar-results">
+                    <h2>{{this.name}}</h2>
+                    <img src="{{#if posterUrl}}{{posterUrl}}{{else}}/images/default_poster.jpg{{/if}}"
+                         alt="Poster di {{film}}" class="movie-poster" data-id="{{id}}" />
+                </div>
+            {{/each}}
+        {{else}}
+            <p>Nessun attore trovato.</p>
+        {{/if}}
+    </div>
+    <a href="/">Torna alla home</a>
+</div>
+
+{{> footer}}
+
+</body>
+</html>
