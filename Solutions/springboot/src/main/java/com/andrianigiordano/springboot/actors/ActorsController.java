@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.actors;
 
+import com.andrianigiordano.springboot.movies.MovieDTO;
 import com.andrianigiordano.springboot.movies.Movies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,4 +25,10 @@ public class ActorsController {
     public List<Actors> getAllActors() {
         return actorsService.getAllActors();
     }
+
+    @GetMapping("/get-actor-by-name")
+    public List<Actors> getMovieDetails(@RequestParam String name) {
+        return actorsService.getActorByName(name);
+    }
+
 }

@@ -49,3 +49,19 @@ exports.init = function(io) {
             }
         });
 }
+
+/**
+@TODO TWEB:
+ - Home: selezionati da noi, dimensioni, searchbar
+ - Actors: layout terribile, titolo, scorrimento
+ - Actors-info: layout terribile, titolo
+ - Oscar: colore titolo, dimensioni e colore attori vincitori, non inserire il riferimento di chi non è attore
+ - Movies: perfetta
+ - Movies-info: da aggiungere le recensioni
+ - Critics: migliorare la disposizione, inserire immagini, distanze
+ - Critics-info: migliorare il layout
+ - Search-movie: perfetta
+ - Search-Actors: non funziona
+ - CSS: da riordinare assolutamente
+ - Socket: da fare
+ */

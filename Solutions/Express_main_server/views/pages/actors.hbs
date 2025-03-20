@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wookie</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <script defer src="/javascripts/actors.js"></script> <!-- Collegamento allo script -->
 </head>
 <body>
 {{> navbar}}
-
 <section class="actors-container">
-    <div class="actors-grid">
-        {{#each actors}}
-            <div class="actor-card">
-                <h2>{{name}}</h2>
-                <p class="actor-role">{{role}}</p>
+    {{#each groupedActors}}
+        <div class="actor-box">
+            <div class="actor-header">
+                <img src="/images/actors/{{@key}}.jpg" alt="{{@key}}" class="actor-image actor-link"
+                     data-actor="{{@key}}"
+                     onerror="this.onerror=null; this.src='/images/default_actor.jpg';"/>
+                <h2 class="actor-name">{{@key}}</h2>
             </div>
-        {{/each}}
-    </div>
+            <div class="films-grid">
+                {{#each this}}
+                    <div class="film-card">
+                        <img src="{{posterUrl}}" alt="Poster di {{film}}"
+                             class="movie-poster" data-id="{{filmId}}"
+                             onerror="this.onerror=null; this.src='/images/default_poster.jpg';"/>
+                        <p class="film-title"><strong>{{film}}</strong></p>
+                        <p class="actor-role">Ruolo: {{role}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/each}}
 </section>
 
 {{> footer}}

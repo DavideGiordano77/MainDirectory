@@ -40,4 +40,9 @@ public class MoviesController {
     public List<MovieDTO> oscarsTop100() {
         return movieService.oscarsTop100();
     }
+
+    @GetMapping("/actors-home")
+    public List<MovieDTO> getActorsHome() {
+        return movieService.getActors();
+    }
 }

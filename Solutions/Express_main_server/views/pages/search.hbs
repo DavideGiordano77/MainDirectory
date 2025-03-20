@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wookie</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <script defer src="/javascripts/search.js"></script> <!-- Collegamento allo script -->
 </head>
 <body>
 {{> navbar}}
@@ -12,38 +13,31 @@
 <div class="search-results">
     <h1>Risultati per "{{query}}"</h1>
 
-    {{#if movies.length}}
-        <h2>Film trovati:</h2>
-        <div class="movies-container">
-            {{#each movies}}
-                <div class="movie-card">
-                    <h2>{{this.title}}</h2>
-                    <p><strong></strong> <img src="{{posterUrl}}" alt="Poster di {{film}}" /></p>
-                    <p>{{this.name}}</p>
-                    <p>{{this.tagline}}</p>
-                    <p>{{this.date}}</p>
-                </div>
-            {{/each}}
-        </div>
-    {{/if}}
+    <div class="movies-container">
+        {{#each movies}}
+            <div class="movie-card" data-id="{{this.id}}" onclick="redirectToMovie(this)">
+                <h2>{{this.title}}</h2>
+                <p>
+                    <strong></strong>
+                    <img src="{{posterUrl}}" alt="Poster di {{this.title}}" />
+                </p>
+                <p>{{this.name}}</p>
+                <p>{{this.tagline}}</p>
+                <p>{{this.date}}</p>
+            </div>
+        {{/each}}
+    </div>
 
-    {{#if actors.length}}
-        <h2>Attori trovati:</h2>
-        <div class="actors-container">
-            {{#each actors}}
-                <div class="actor-card">
-                    <h2>{{this.name}}</h2>
-                    <p>Ruolo: {{this.role}}</p>
-                </div>
-            {{/each}}
-        </div>
-    {{/if}}
+    <div class="actors-container">
+        {{#each actors}}
+            <div class="actor-card" data-id="{{this.id}}" onclick="redirectToActor(this)">
+                <h2>{{this.name}}</h2>
+                <p>Ruolo: {{this.role}}</p>
+            </div>
+        {{/each}}
+    </div>
 
-    {{#unless movies.length}}
-        {{#unless actors.length}}
-            <p>Nessun risultato trovato.</p>
-        {{/unless}}
-    {{/unless}}
+
 </div>
 
 {{> footer}}

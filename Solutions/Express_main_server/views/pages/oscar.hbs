@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wookie</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <script defer src="/javascripts/oscar.js"></script> <!-- Collegamento allo script -->
 </head>
 
 <body>
 {{> navbar}} <!-- Navbar in partials -->
+
 <section class="oscar-section">
     {{#each groupedAwards}}
         <div class="category-group">
@@ -17,12 +19,11 @@
                 {{#each this}}
                     <div class="oscar-card">
                         <h3>{{film}}</h3>
-                        {{#if posterUrl}}
-                            <p><strong>Poster:</strong> <img src="{{posterUrl}}" alt="Poster di {{film}}" /></p>
-                        {{else}}
-                            <p><strong>Poster:</strong> <img src="/images/eva.jpg" alt="Poster di default" /></p>
-                        {{/if}}
-                        <p><strong>Nome:</strong> {{name}}</p>
+                        <img src="{{#if posterUrl}}{{posterUrl}}{{else}}/images/default_poster.jpg{{/if}}"
+                             alt="Poster di {{film}}" class="movie-poster" data-id="{{filmId}}" />
+                        <p><strong>Nome:</strong>
+                            <span class="actor-name" data-name="{{name}}">{{name}}</span>
+                        </p>
                         <p><strong>Vincitore:</strong> {{#if winner}}✅ Sì{{else}}❌ No{{/if}}</p>
                     </div>
                 {{/each}}
@@ -34,5 +35,6 @@
 </section>
 
 {{> footer}} <!-- Footer in partials -->
+
 </body>
 </html>

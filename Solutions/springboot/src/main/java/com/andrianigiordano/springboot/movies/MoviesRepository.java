@@ -22,7 +22,10 @@ public interface MoviesRepository extends JpaRepository<Movies, Long> {
     @Query("SELECT m FROM Movies m LEFT JOIN FETCH m.poster WHERE m.id = :id")
     Optional<Movies> findMovieById(Long id);
 
-    @Query("SELECT distinct m FROM Movies m LEFT JOIN FETCH m.poster where m.date >= 2022")
+    @Query("SELECT distinct m FROM Movies m LEFT JOIN FETCH m.poster where m.date >= 2015")
     List<Movies> getOscarsIn2024();
+
+    @Query("SELECT DISTINCT m FROM Movies m LEFT JOIN FETCH m.poster p WHERE m.date >= 2020")
+    List<Movies> getActors();
 
 }

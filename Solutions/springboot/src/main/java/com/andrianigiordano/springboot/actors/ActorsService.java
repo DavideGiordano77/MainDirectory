@@ -20,21 +20,16 @@ public class ActorsService {
     }
 
     public List<Actors> getAllActors() {
-        PageRequest pageable = PageRequest.of(0, 1); // Offset 0, massimo 100 risultati
-        List<Actors> actors = new ArrayList<>();
-
-        // Assuming 'findRyanGosling', 'findNataliePortman', and 'findTobeyMaguire' are methods that return a List or a Page
-        actors.addAll(actorsRepository.findDistinctRyanGosling(pageable));
-        actors.addAll(actorsRepository.findDistinctNataliePortman(pageable));
-        actors.addAll(actorsRepository.findDistinctTobeyMaguire(pageable));
-
-        return actors;
+        return actorsRepository.findActorsForHome();
     }
-
 
     public List<Actors> searchActorsByName(String query) {
         PageRequest pageable = PageRequest.of(0, 100); // Offset 0, massimo 100 risultati
         return actorsRepository.findByNameContainingIgnoreCase(query, pageable);
+    }
+
+    public List<Actors> getActorByName(String name) {
+        return actorsRepository.findActorByName(name);
     }
 
 }

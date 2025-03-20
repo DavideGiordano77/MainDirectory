@@ -44,6 +44,21 @@ public class MoviesService {
                 .collect(Collectors.toList());
     }
 
+    public List<MovieDTO> getActors() {
+        return movieRepository.getActors()
+                .stream()
+                .map(movie -> new MovieDTO(
+                        movie.getId(),
+                        movie.getName(),
+                        movie.getDate(),
+                        movie.getTagline(),
+                        movie.getDescription(),
+                        movie.getPosterUrl(),
+                        movie.getRating(),
+                        movie.getMinute()
+                ))
+                .collect(Collectors.toList());
+    }
 
 
     public Optional<MovieDTO> getMovieById(Long id) {

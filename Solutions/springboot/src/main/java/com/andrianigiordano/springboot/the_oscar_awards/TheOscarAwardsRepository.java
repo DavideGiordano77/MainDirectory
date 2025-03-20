@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface TheOscarAwardsRepository extends JpaRepository<TheOscarAwards, Long> {
 
-    @Query("SELECT o FROM TheOscarAwards o  where o.ceremony = 96")
+    @Query("SELECT o FROM TheOscarAwards o  where o.ceremony > 90 and o.winner = true")
     List<TheOscarAwards> findTheOscarAwards();  // Metodo per ottenere i top 100 Oscar
 }

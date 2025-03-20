@@ -13,13 +13,18 @@ async function getTop100Oscars(req, res) {
         const moviesResponse = await axios.get(`http://localhost:8080/movies/top100`);
         const movies = moviesResponse.data;
 
-        const enrichedAwards = oscarAwards.map(award => {
-            const movieDetails = movies.find(movie => movie.title === award.film & movie.date === award.yearFilm);
-            return {
-                ...award,
-                posterUrl: movieDetails ? movieDetails.posterUrl : ''
-            };
-        });
+        const enrichedAwards = oscarAwards
+            .map(award => {
+                const movieDetails = movies.find(movie => movie.title === award.film && movie.date === award.yearFilm);
+                return movieDetails && movieDetails.posterUrl ? {
+                    ...award,
+                    posterUrl: movieDetails.posterUrl,
+                    filmId: movieDetails.id
+                } : null; // Se non ha un poster, restituisce null
+            })
+            .filter(award => award !== null); // Rimuove i film senza poster
+
+
 
         // Raggruppamento per categoria
         const groupedAwards = enrichedAwards.reduce((acc, award) => {
