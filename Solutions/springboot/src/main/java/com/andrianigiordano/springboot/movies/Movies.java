@@ -23,7 +23,7 @@ public class Movies {
     private String name;
 
     @Column(name = "date")
-    private int date;
+    private Integer date;
 
     @Column(name = "tagline")
     private String tagline;

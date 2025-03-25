@@ -54,7 +54,8 @@ exports.init = function(io) {
 @TODO
  * Movies-info: da aggiungere le recensioni @Dade
  * Critics-info: migliorare il layout + poster film @Dade
- * Search-Actors: non funziona @Agne
+ * Search-Actors: collegare link
+ * Search-Movies: collegare link
  * Socket:da fare (chat da fare) @Insieme
  * Recensioni che vengono salvate in mongo
  */

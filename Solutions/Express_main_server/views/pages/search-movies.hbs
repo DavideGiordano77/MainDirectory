@@ -1,0 +1,27 @@
+<section class="search-movies container my-5">
+    <div class="search-results">
+        <h1 class="mb-4">Risultati per "{{query}}"</h1>
+
+        <!-- Sezione Film -->
+        {{#if movies}}
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3>Film</h3>
+                </div>
+                {{#each movies}}
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card" data-id="{{this.id}}" onclick="redirectToMovie(this)">
+                            <img src="{{posterUrl}}" class="card-img-top" alt="Poster di {{this.title}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title}}</h5>
+                                <p class="card-text"><strong>{{this.name}}</strong></p>
+                                <p class="card-text">{{this.tagline}}</p>
+                                <p class="card-text">{{this.tagline}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+</section>
