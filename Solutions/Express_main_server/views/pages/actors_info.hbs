@@ -1,17 +1,17 @@
 <section class="actors-info py-5">
+    <h1 class="text-center fw-bold">Film di {{name}}</h1> <!-- Aggiungi il nome dell'attore qui -->
     <div class="container">
-        <h1 class="text-center mb-4" style="color: #333;">{{name}}</h1>
 
         <div class="row d-flex flex-nowrap">
             {{#if actor.length}}
                 {{#each actor}}
                     <div class="col-md-3 mb-4">
-                        <div class="card shadow-sm">
+                        <div class="card shadow-sm bg-dark text-white"> <!-- Modifica per box scuro e testo bianco -->
                             <a href="/movies/get-all-info/{{this.id}}" class="movie-link">
                                 <img src="{{this.posterUrl}}" class="card-img-top" alt="{{this.title}}" data-id="{{this.id}}">
                             </a>
                             <div class="card-body text-center">
-                                <h2 class="card-title">{{this.role}}</h2>
+                                <h2 class="card-title">{{this.role}}</h2> <!-- Il testo qui è bianco, come richiesto -->
                             </div>
                         </div>
                     </div>
@@ -21,12 +21,6 @@
                     <p class="text-center">Nessun attore trovato.</p>
                 </div>
             {{/if}}
-        </div>
-
-
-        <!-- Pulsante per tornare alla home -->
-        <div class="text-center mt-4">
-            <a href="/" class="btn btn-primary">Torna alla home</a>
         </div>
     </div>
 </section>

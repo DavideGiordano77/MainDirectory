@@ -18,13 +18,13 @@
                                 {{#each this}}
                                     <div class="col-6">
                                         <a href="/movies/get-all-info/{{filmId}}" class="movie-link">
-                                            <div class="card text-center">
+                                            <div class="card text-center bg-dark text-white">
                                                 <img src="{{posterUrl}}" alt="Poster di {{film}}"
                                                      class="img-fluid movie-poster"
                                                      onerror="this.onerror=null; this.src='/images/default_poster.jpg';">
                                                 <div class="card-body p-2">
                                                     <p class="fw-bold mb-1">{{film}}</p>
-                                                    <p class="small text-muted">Ruolo: {{role}}</p>
+                                                    <p class="small text-white">Ruolo: {{role}}</p> <!-- Testo del ruolo bianco -->
                                                 </div>
                                             </div>
                                         </a>

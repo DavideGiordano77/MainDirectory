@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs'); // Importa Handlebars
 
-var indexRouter = require('./routes/index'); // Import del router
+var indexRouter = require('./routes/home'); // Import del router
 var usersRouter = require('./routes/users');
 const moviesRoutes = require('./routes/movies');
 const oscarRoutes = require('./routes/oscar');

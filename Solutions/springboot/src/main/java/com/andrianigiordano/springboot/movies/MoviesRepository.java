@@ -28,4 +28,11 @@ public interface MoviesRepository extends JpaRepository<Movies, Long> {
     @Query("SELECT DISTINCT m FROM Movies m LEFT JOIN FETCH m.poster p WHERE m.date >= 2020")
     List<Movies> getActors();
 
+    @Query("SELECT DISTINCT m FROM Movies m WHERE (m.name = 'Interstellar' AND m.date = 2014) " +
+            "OR (m.name = 'Akira' AND m.date = 1988) " +
+            "OR (m.name = 'Perfect Days' AND m.date = 2023) " +
+            "OR (m.name = 'Blade Runner 2049' AND m.date = 2017) " +
+            "OR (m.name = 'Shrek' AND m.date = 2001)")
+    List<Movies> getAllPosters();
+
 }

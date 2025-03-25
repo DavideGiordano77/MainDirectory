@@ -1,32 +1,38 @@
-<section class="members">
-<div class="members-container">
-    <h1>Critici</h1>
+<section class="members py-5">
+    <div class="container">
 
-    <!-- Sezione per i Top Critics -->
-    <h2>Top Critics</h2>
-    <div class="critics-grid">
-        {{#each topCritics}}
-            <div class="critic-card top-critic">
-                <div class="critic-image">
-                    <img src="/images/default.jpg" alt="{{this}}">
+        <!-- Sezione per i Top Critics -->
+        <h2 class="mb-3">Top Critics</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {{#each topCritics}}
+                <div class="col">
+                    <div class="card shadow-sm bg-dark text-white">
+                        <div class="card-body text-center">
+                            <!-- Immagine del critico (Top Critics hanno una foto speciale) -->
+                            <img src="/images/topcritic.png" alt="{{this}}" class="card-img-top rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
+                            <!-- Nome del critico sottolineato -->
+                            <a href="/members/{{this}}" class="text-decoration-underline text-decoration-none text-light h5">{{this}}</a>
+                        </div>
+                    </div>
                 </div>
-                <a href="/members/{{this}}" class="critic-name">{{this}}</a>
-            </div>
-        {{/each}}
-    </div>
+            {{/each}}
+        </div>
 
-    <!-- Sezione per gli altri Critics -->
-    <h2>Altri Critics</h2>
-    <div class="critics-grid">
-        {{#each allCritics}}
-            <div class="critic-card">
-                <div class="critic-image">
-                    <img src="/images/default.jpg" alt="{{this}}">
+        <!-- Sezione per gli altri Critics -->
+        <h2 class="mt-5 mb-3">Altri Critics</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {{#each allCritics}}
+                <div class="col">
+                    <div class="card shadow-sm bg-dark text-white">
+                        <div class="card-body text-center">
+                            <!-- Immagine del critico -->
+                            <img src="/images/critic.jpg" alt="{{this}}" class="card-img-top rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
+                            <!-- Nome del critico sottolineato -->
+                            <a href="/members/{{this}}" class="text-decoration-underline text-decoration-none text-light h5">{{this}}</a>
+                        </div>
+                    </div>
                 </div>
-                <a href="/members/{{this}}" class="critic-name">{{this}}</a>
-            </div>
-        {{/each}}
+            {{/each}}
+        </div>
     </div>
-</div>
-
 </section>

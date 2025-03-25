@@ -52,18 +52,9 @@ exports.init = function(io) {
 
 /**
 @TODO
- * Home: selezionati da noi, dimensioni, searchbar @Agne
- * Actors: layout terribile, titolo, scorrimento @Agne
- * Actors-info: layout terribile, titolo @Agne
- * Oscar: colore titolo, dimensioni e colore attori vincitori, non inserire il riferimento di chi non è attore @Agne
- * Movies: perfetta
  * Movies-info: da aggiungere le recensioni @Dade
- * Critics: migliorare la disposizione, inserire immagini, distanze @Dade
  * Critics-info: migliorare il layout + poster film @Dade
- * Search-movie: perfetta
  * Search-Actors: non funziona @Agne
- * CSS: da riordinare assolutamente @Insieme
- * Socket: da fare @Insieme
- * Riorganizzazione html @Insieme
-
+ * Socket:da fare (chat da fare) @Insieme
+ * Recensioni che vengono salvate in mongo
  */

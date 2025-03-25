@@ -1,6 +1,6 @@
 const axios = require('axios');
 const express = require('express');
-const router = require("./index");
+const router = require("./home");
 
 router.get('/members', async (req, res) => {
     try {

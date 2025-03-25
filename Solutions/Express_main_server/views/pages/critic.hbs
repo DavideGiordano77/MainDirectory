@@ -1,23 +1,31 @@
-<section class="critic">
-<div class="critic-container">
-    <h1>Recensioni di {{criticName}}</h1>
+<section class="critic py-5">
+    <div class="container">
+        <h1 class="text-center mb-4">Recensioni di {{criticName}}</h1> <!-- Nome critico cliccabile -->
 
-<main>
-    {{#if movies.reviews}}
-        <ul>
-            {{#each movies.reviews}}
-                <li>
-                    <h3>{{this.movie_title}}</h3>
-                    <p><strong>Tipo di recensione:</strong> {{this.review_type}}</p>
-                    <p><strong>Punteggio:</strong> {{this.review_score}}</p>
-                    <p><strong>Data recensione:</strong> {{this.review_date}}</p>
-                    <p><strong>Contenuto recensione:</strong> {{this.review_content}}</p>
-                </li>
-            {{/each}}
-        </ul>
-    {{else}}
-        <p>Non sono state trovate recensioni per questo critico.</p>
-    {{/if}}
-</main>
-</div>
+        <div class="row justify-content-center">
+            {{#if movies.reviews}}
+                <div class="col-12">
+                    <ul class="list-group">
+                        {{#each movies.reviews}}
+                            <li class="list-group-item shadow-sm bg-dark text-white mb-3">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <h3 class="card-title text-light">{{this.movie_title}}</h3>
+                                        <p><strong>Tipo di recensione:</strong> {{this.review_type}}</p>
+                                        <p><strong>Punteggio:</strong> {{this.review_score}}</p>
+                                        <p><strong>Data recensione:</strong> {{this.review_date}}</p>
+                                        <p><strong>Contenuto recensione:</strong> {{this.review_content}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{else}}
+                <div class="col-12">
+                    <p class="text-center">Non sono state trovate recensioni per questo critico.</p>
+                </div>
+            {{/if}}
+        </div>
+    </div>
 </section>

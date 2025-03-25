@@ -75,6 +75,22 @@ public class MoviesService {
                 ));
     }
 
+    public List<MovieDTO> getPosters() {
+        return movieRepository.getAllPosters()
+                .stream()
+                .map(movie -> new MovieDTO(
+                        movie.getId(),
+                        movie.getName(),
+                        movie.getDate(),
+                        movie.getTagline(),
+                        movie.getDescription(),
+                        movie.getPosterUrl(),
+                        movie.getRating(),
+                        movie.getMinute()
+                ))
+                .collect(Collectors.toList());
+    }
+
     public List<Movies> searchMoviesByName(String name) {
         PageRequest pageable = PageRequest.of(0, 100); // Offset 0, massimo 100 risultati
         return movieRepository.findByNameContainingIgnoreCase(name, pageable);

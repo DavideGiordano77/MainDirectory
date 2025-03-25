@@ -26,27 +26,19 @@
 
     <!-- Box per Nuove Uscite -->
     <section class="new-releases mt-5">
-        <h2>Le scelte della redazione</h2>
-        <div class="row">
-            <div class="col-md-2 col-sm-4 col-6">
-                <img src="/images/br.jpg" class="img-fluid" alt="Bladerunner 2049">
-                <p>Film 1</p>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6">
-                <img src="/images/akira.jpg" class="img-fluid" alt="Akira">
-                <p>Film 2</p>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6">
-                <img src="/images/i.jpg" class="img-fluid" alt="Nuova Uscita 3">
-                <p>Film 3</p>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6">
-                <img src="/images/pd.jpg" class="img-fluid" alt="Perfect Days">
-                <p>Film 4</p>
-            </div>
-            <div class="col-md-2 col-sm-4 col-6">
-                <img src="/images/shrek.jpg" class="img-fluid" alt="Nuova Uscita 5">
-                <p>Film 5</p>
+        <h2 class="text-center">Le scelte della redazione</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                {{#each movies}}
+                    <div class="col-md-2 col-sm-4 col-6 text-center mb-4">
+                        <div class="poster-box p-3 border rounded">
+                            <a href="/movies/get-all-info/{{this.id}}" class="movie-link">
+                                <img src="{{this.posterUrl}}" class="img-fluid" alt="{{this.title}}">
+                            </a>
+                            <p class="text-white">{{this.title}}</p>
+                        </div>
+                    </div>
+                {{/each}}
             </div>
         </div>
     </section>

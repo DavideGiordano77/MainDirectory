@@ -1,23 +1,32 @@
-<section class="oscar-section">
+<section class="container py-4">
     {{#each groupedAwards}}
-        <div class="category-group">
-            <h2 class="category-title">{{@key}}</h2> <!-- Nome della categoria -->
+        <div class="mb-4">
+            <h2 class="text-center mb-3">{{@key}}</h2> <!-- Nome della categoria -->
             <div class="oscar-results">
-                {{#each this}}
-                    <div class="oscar-card">
-                        <h3>{{film}}</h3>
-                        <img src="{{#if posterUrl}}{{posterUrl}}{{else}}/images/default_poster.jpg{{/if}}"
-                             alt="Poster di {{film}}" class="movie-poster" data-id="{{filmId}}" />
-                        <p><strong>Nome:</strong>
-                            <span class="actor-name" data-name="{{name}}">{{name}}</span>
-                        </p>
-                        <p><strong>Vincitore:</strong> {{#if winner}}✅ Sì{{else}}❌ No{{/if}}</p>
-                    </div>
-                {{/each}}
+                <div class="row flex-nowrap overflow-auto">
+                    {{#each this}}
+                        <div class="col-sm-6 col-md-4 col-lg-3 mb-4"> <!-- Card più piccola -->
+                            <div class="card shadow-sm bg-dark text-white">
+                                <!-- Poster cliccabile -->
+                                <a href="/movies/get-all-info/{{filmId}}">
+                                    <img src="{{#if posterUrl}}{{posterUrl}}{{else}}/images/default_poster.jpg{{/if}}"
+                                         alt="Poster di {{film}}" class="card-img-top" />
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">{{film}}</h5>
+                                    <a href="/actors/actors-info/{{name}}" class="text-white">
+                                        <p class="card-text"><strong>Nome:</strong>
+                                            <span class="actor-name">{{name}}</span>
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
             </div>
         </div>
     {{else}}
-        <p>Nessun risultato trovato.</p>
+        <p class="text-center">Nessun risultato trovato.</p>
     {{/each}}
 </section>
-

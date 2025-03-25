@@ -88,7 +88,10 @@ async function getAllInfo(req, res) {
             .filter(Boolean); // Rimuove i valori null
 
         // Passa 'enrichedActors' al template
-        res.render('pages/actors_info', { actor: enrichedActors });
+        res.render('pages/actors_info', {
+            actor: enrichedActors ,
+            name: name
+        });
     } catch (error) {
         console.error("Errore nel recupero dei dettagli dell'attore:", error.message);
         res.status(500).json({ error: "Impossibile recuperare i dettagli dell'attore" });

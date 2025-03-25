@@ -2,12 +2,9 @@ package com.andrianigiordano.springboot.movies;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/movies")
@@ -44,5 +41,9 @@ public class MoviesController {
     @GetMapping("/actors-home")
     public List<MovieDTO> getActorsHome() {
         return movieService.getActors();
+    }
+    @GetMapping("/get-home-movies")
+    public List<MovieDTO> getHomeMovies() {
+        return movieService.getPosters();
     }
 }
