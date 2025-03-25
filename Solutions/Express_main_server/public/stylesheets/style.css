@@ -1,3 +1,24 @@
+/*Definitivo*/
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: darkslategray;
+}
+
+main {
+  flex: 1; /* Permette al contenuto di crescere e spingere il footer in basso */
+}
+
+footer {
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
 /* Imposta sfondo nero su tutto il sito */
 body {
   background-color: darkslategrey;
@@ -7,325 +28,35 @@ body {
   padding: 0;
 }
 
-/* Navbar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 15px 40px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  border-radius: 20px;
-}
-
-.logo {
-  display: flex;          /* Usa Flexbox per allineare l'immagine e il testo */
-  align-items: center;    /* Allinea verticalmente */
-}
-
-.logo img {
-  height: 70px;
-  width: auto;
-  margin-right: 15px;     /* Spazio tra immagine e testo */
-}
-
-.logo span {
-  font-family: 'Roboto', sans-serif;  /* Usa il font Roboto */
-  font-size: 24px;                   /* Modifica la dimensione del testo */
-  font-weight: bold;                 /* Imposta il peso del font */
-  color: white;                      /* Colore del testo */
-  text-transform: uppercase;         /* Trasforma il testo in maiuscolo */
-  letter-spacing: 2px;               /* Distanza tra le lettere */
-}
-
-/* Link di navigazione */
-.nav-links {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Stile per la barra di ricerca */
-.search {
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.search input {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: white;
-  font-size: 14px;
-  padding: 5px;
-}
-
-/* Menu Toggle per dispositivi mobili */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    text-align: center;
-    padding: 10px 0;
-    border-radius: 0 0 20px 20px;
-  }
-  .nav-links a {
-    display: block;
-    padding: 10px;
-  }
-  .menu-toggle {
-    display: block;
-  }
-  .nav-links.active {
-    display: flex;
-  }
-}
-.logo a {
-  text-decoration: none; /* Rimuove la sottolineatura dal link */
-}
-
-/* Carosello principale */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  height: 100%;  /* Imposta un'altezza fissa per il carosello */
-  overflow: hidden;  /* Nasconde le immagini che non sono visibili */
-  display: flex;
-  justify-content: center; /* Centra il carosello orizzontalmente */
-}
-
-.carousel-slide {
-  display: flex;
-  transition: transform 0.5s ease-in-out; /* Aggiunge una transizione fluida tra le immagini */
-  align-items: center;  /* Centra verticalmente le immagini */
-}
-
-.carousel-slide img {
-  width: 100%; /* Ogni immagine prende il 100% della larghezza del contenitore */
-  height: 100%; /* Ogni immagine prende il 100% dell'altezza del contenitore */
-  object-fit: cover; /* Mantiene l'immagine proporzionata ma la ritaglia per riempire l'area */
-  max-width: 100%;
-}
-
-
-/* Bottoni del carosello */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-#prevBtn {
-  left: 10px;
-}
-
-#nextBtn {
-  right: 10px;
-}
-
-/* Sezione Movies */
-.movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 100px; /* Spazio per la navbar */
-  padding: 20px;
-  justify-content: center;
-}
-
-.movie-card {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  width: 250px; /* Larghezza fissa per ogni card */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie-card:hover {
-  transform: translateY(-10px); /* Effetto al passaggio del mouse */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-
-.movie-card h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.movie-card p {
-  font-size: 14px;
-  margin: 5px 0;
-}
-
-.movie-card .movie-rating {
-  font-weight: bold;
-  color: #FFD700; /* Colore dorato per il rating */
-}
-
-.movie-card .movie-year {
-  font-style: italic;
-  color: #ccc;
-}
-
-/* Footer */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Garantisce che il body occupi almeno l'intera altezza della finestra */
-}
-
-/* Posiziona il footer in fondo */
-.footer {
-  margin-top: auto; /* Spinge il footer verso il fondo */
-  background-color: #111;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-}
-
-/* Se vuoi un footer fisso in basso (sempre visibile), usa questa regola */
-.footer.fixed-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 20px;
-}
-
-.footer-links a {
-  color: #ccc;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin: 0 10px;
-}
-
-.footer-links a:hover {
-  color: #FFD700; /* Colore dorato per l'effetto hover */
-}
-
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.footer-social .social-icon {
-  color: #ccc;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.footer-social .social-icon:hover {
-  color: #FFD700; /* Colore dorato per l'effetto hover */
-}
-
-.footer-text {
-  font-size: 12px;
-  color: #aaa;
-  margin-top: 20px;
-}
-
-.actors-container {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  justify-content: center;
+.actors {
+  background-color: darkslategray; /* Verde scuro */
   padding: 20px;
   overflow-x: auto;
+  overflow-y: hidden; /* Impedisce lo scroll verticale indesiderato */
 }
 
-.actor-box {
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  width: auto; /* Da FISSO (320px) a AUTO */
-  min-width: 320px; /* Assicura che non diventi troppo piccolo */
-  max-width: 500px; /* Evita che diventi troppo grande */
+.custom-card {
+  background-color: rgba(0, 0, 0, 0.8); /* Verde scuro */
+  color: white; /* Testo bianco per contrasto */
+  height: 100%; /* Garantisce che la card si espanda correttamente */
+  display: flex;
+  flex-direction: column; /* Per allineare gli elementi verticalmente */
+}
+
+.card-header {
   text-align: center;
-  color: white;
+  margin-bottom: 15px;
+}
+
+.card-body .row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.actor-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.actor-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #fff;
-}
-
-.actor-name {
-  margin-top: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
+.row.d-flex {
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .films-grid {
@@ -507,72 +238,6 @@ body {
   }
 }
 
-.movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.movie-card, .actor-card {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px;
-}
-
-.movie-card:hover, .actor-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-.movie-poster {
-  transition: transform 0.3s ease-in-out;
-}
-
-.movie-poster:hover {
-  transform: scale(1.05);
-}
-.movie-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 120px 20px 20px; /* Aggiunto padding superiore per lasciare spazio alla navbar */
-}
-
-.movie-card-large {
-  display: flex;
-  flex-direction: row; /* Disposizione orizzontale */
-  align-items: flex-start;
-  max-width: 800px;
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-  color: white;
-  text-align: left;
-}
-
-.movie-poster-large {
-  width: 200px; /* Rimpicciolito */
-  height: auto;
-  border-radius: 10px;
-  margin-right: 20px; /* Distanza tra immagine e testo */
-}
-
-.movie-info {
-  flex: 1; /* Occupa lo spazio rimanente */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.movie-info h1 {
-  margin-top: 0;
-}
 
 .back-button {
   display: block;
@@ -635,53 +300,9 @@ body {
   margin-top: 120px;
 }
 
-/* Contenitore per le recensioni */
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra le recensioni */
-}
 
-/* Ogni recensione */
-li {
-  background-color: #3e5c5c; /* Colore più chiaro di darkslategrey */
-  color: white; /* Font bianco */
-  border: 1px solid #ddd; /* Aggiungi un bordo grigio chiaro */
-  margin-bottom: 20px; /* Spazio tra le recensioni */
-  padding: 15px;
-  border-radius: 8px; /* Angoli arrotondati per le recensioni */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera per un effetto sollevato */
-  width: 80%; /* Rendiamo il contenitore della recensione più piccolo */
-  max-width: 800px; /* Limite massimo per il contenitore */
-}
 
-/* Stile per il titolo del film */
-li h3 {
-  font-size: 1.5em;
-  margin: 0 0 10px 0; /* Spazio sotto il titolo */
-  color: #ffffff; /* Titolo bianco */
-}
 
-/* Stile per i dettagli della recensione */
-li p {
-  margin: 5px 0;
-  color: #ddd; /* Colore del testo per i dettagli (più chiaro del bianco) */
-  line-height: 1.6; /* Altezza della linea per una lettura più comoda */
-}
-
-/* Dettagli speciali (Tipo di recensione, punteggio, data) */
-li p strong {
-  color: #ffffff; /* Colore per le etichette (bianco) */
-}
-
-/* Separatore per recensioni */
-li + li {
-  border-top: 2px solid #eee; /* Separatore visibile tra recensioni */
-  margin-top: 20px;
-}
 
 .actors-info-container {
   text-align: center;
@@ -711,3 +332,4 @@ li + li {
   height: auto;
   border-radius: 5px;
 }
+

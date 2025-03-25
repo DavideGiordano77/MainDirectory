@@ -1,38 +1,40 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wookie</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script defer src="/javascripts/actors.js"></script> <!-- Collegamento allo script -->
-</head>
-<body>
-{{> navbar}}
-<section class="actors-container">
-    {{#each groupedActors}}
-        <div class="actor-box">
-            <div class="actor-header">
-                <img src="/images/actors/{{@key}}.jpg" alt="{{@key}}" class="actor-image actor-link"
-                     data-actor="{{@key}}"
-                     onerror="this.onerror=null; this.src='/images/default_actor.jpg';"/>
-                <h2 class="actor-name">{{@key}}</h2>
-            </div>
-            <div class="films-grid">
-                {{#each this}}
-                    <div class="film-card">
-                        <img src="{{posterUrl}}" alt="Poster di {{film}}"
-                             class="movie-poster" data-id="{{filmId}}"
-                             onerror="this.onerror=null; this.src='/images/default_poster.jpg';"/>
-                        <p class="film-title"><strong>{{film}}</strong></p>
-                        <p class="actor-role">Ruolo: {{role}}</p>
+<section class="actors">
+    <h1 class="text-center fw-bold">I nostri preferiti</h1>
+    <div class="container mt-4">
+        <div class="row">
+            {{#each groupedActors}}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow custom-card">
+                        <div class="card-header text-center">
+                            <a href="/actors/actors-info/{{@key}}" class="actor-link">
+                                <img src="/images/actors/{{@key}}.jpg" alt="{{@key}}" class="img-fluid rounded-circle"
+                                     onerror="this.onerror=null; this.src='/images/default_actor.jpg';"
+                                     style="width: 150px; height: 150px; object-fit: cover;">
+                            </a>
+                            <h5 class="mt-2">{{@key}}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-2">
+                                {{#each this}}
+                                    <div class="col-6">
+                                        <a href="/movies/get-all-info/{{filmId}}" class="movie-link">
+                                            <div class="card text-center">
+                                                <img src="{{posterUrl}}" alt="Poster di {{film}}"
+                                                     class="img-fluid movie-poster"
+                                                     onerror="this.onerror=null; this.src='/images/default_poster.jpg';">
+                                                <div class="card-body p-2">
+                                                    <p class="fw-bold mb-1">{{film}}</p>
+                                                    <p class="small text-muted">Ruolo: {{role}}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
                     </div>
-                {{/each}}
-            </div>
+                </div>
+            {{/each}}
         </div>
-    {{/each}}
+    </div>
 </section>
-
-{{> footer}}
-</body>
-</html>

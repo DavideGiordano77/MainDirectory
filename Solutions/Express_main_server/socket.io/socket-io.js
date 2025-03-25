@@ -51,17 +51,19 @@ exports.init = function(io) {
 }
 
 /**
-@TODO TWEB:
- - Home: selezionati da noi, dimensioni, searchbar
- - Actors: layout terribile, titolo, scorrimento
- - Actors-info: layout terribile, titolo
- - Oscar: colore titolo, dimensioni e colore attori vincitori, non inserire il riferimento di chi non è attore
- - Movies: perfetta
- - Movies-info: da aggiungere le recensioni
- - Critics: migliorare la disposizione, inserire immagini, distanze
- - Critics-info: migliorare il layout
- - Search-movie: perfetta
- - Search-Actors: non funziona
- - CSS: da riordinare assolutamente
- - Socket: da fare
+@TODO
+ * Home: selezionati da noi, dimensioni, searchbar @Agne
+ * Actors: layout terribile, titolo, scorrimento @Agne
+ * Actors-info: layout terribile, titolo @Agne
+ * Oscar: colore titolo, dimensioni e colore attori vincitori, non inserire il riferimento di chi non è attore @Agne
+ * Movies: perfetta
+ * Movies-info: da aggiungere le recensioni @Dade
+ * Critics: migliorare la disposizione, inserire immagini, distanze @Dade
+ * Critics-info: migliorare il layout + poster film @Dade
+ * Search-movie: perfetta
+ * Search-Actors: non funziona @Agne
+ * CSS: da riordinare assolutamente @Insieme
+ * Socket: da fare @Insieme
+ * Riorganizzazione html @Insieme
+
  */

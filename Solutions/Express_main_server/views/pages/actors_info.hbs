@@ -1,35 +1,32 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wookie</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script defer src="/javascripts/actors_info.js"></script> <!-- Collegamento allo script -->
-</head>
-<body>
+<section class="actors-info py-5">
+    <div class="container">
+        <h1 class="text-center mb-4" style="color: #333;">{{name}}</h1>
 
-{{> navbar}}
-
-<div class="actors-info-container">
-    <h1>{{name}}</h1>
-    <div class="film-card-container">
-        {{#if actor.length}}
-            {{#each actor}}
-                <div class="oscar-results">
-                    <h2>{{this.name}}</h2>
-                    <img src="{{#if posterUrl}}{{posterUrl}}{{else}}/images/default_poster.jpg{{/if}}"
-                         alt="Poster di {{film}}" class="movie-poster" data-id="{{id}}" />
+        <div class="row d-flex flex-nowrap">
+            {{#if actor.length}}
+                {{#each actor}}
+                    <div class="col-md-3 mb-4">
+                        <div class="card shadow-sm">
+                            <a href="/movies/get-all-info/{{this.id}}" class="movie-link">
+                                <img src="{{this.posterUrl}}" class="card-img-top" alt="{{this.title}}" data-id="{{this.id}}">
+                            </a>
+                            <div class="card-body text-center">
+                                <h2 class="card-title">{{this.role}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="col-12">
+                    <p class="text-center">Nessun attore trovato.</p>
                 </div>
-            {{/each}}
-        {{else}}
-            <p>Nessun attore trovato.</p>
-        {{/if}}
+            {{/if}}
+        </div>
+
+
+        <!-- Pulsante per tornare alla home -->
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">Torna alla home</a>
+        </div>
     </div>
-    <a href="/">Torna alla home</a>
-</div>
-
-{{> footer}}
-
-</body>
-</html>
+</section>

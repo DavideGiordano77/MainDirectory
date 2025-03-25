@@ -1,32 +1,21 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
+<section class="container py-4">
+    <div class="row">
+        {{#each movies}}
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                <div class="card h-100">
+                    <a href="/movies/get-all-info/{{this.id}}" class="movie-link">
+                        <img src="{{this.posterUrl}}" class="card-img-top" alt="{{this.title}}" data-id="{{this.id}}">
+                    </a>
+                    <div class="card-body p-2">
+                        <h4 class="card-title">{{this.title}}</h4>
+                        <p class="card-text mb-1"><strong>Anno:</strong> {{this.date}}</p>
+                        <p class="card-text mb-1"><strong>Tagline:</strong> {{this.tagline}}</p>
+                        <p class="card-text mb-1"><strong>Rating:</strong> {{this.rating}}</p>
+                        <p class="card-text mb-1"><strong>Durata:</strong> {{this.minute}} min</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>
 
-{{> navbar}} <!-- Navbar in partials -->
-
-<div class="movies-container">
-    {{#each movies}}
-        <div class="movie-card">
-            <img class="movie-poster" src="{{this.posterUrl}}" alt="{{this.title}}" data-id="{{this.id}}">
-            <h2>{{this.title}}</h2>
-            <p class="movie-year">Anno: {{this.date}}</p>
-            <p><strong>Tagline:</strong> {{this.tagline}}</p>
-            <p class="movie-rating">Rating: {{this.rating}}</p>
-            <p><strong>Durata:</strong> {{this.minute}} minuti</p>
-        </div>
-    {{/each}}
-</div>
-
-{{> footer}} <!-- Footer in partials -->
-
-<!-- Importazione del file JavaScript -->
-<script src="/javascripts/movies.js"></script>
-
-</body>
-</html>

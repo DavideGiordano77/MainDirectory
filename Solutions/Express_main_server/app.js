@@ -13,17 +13,19 @@ const actorsRoutes = require('./routes/actors');
 const searchRoutes = require('./routes/search');
 const memberRoutes = require('./routes/members');
 
-
-
-
 var app = express();
 
-// Registra la cartella dei partials
-hbs.registerPartials(path.join(__dirname, 'views/partials'));
-
-// Configurazione Handlebars
-app.set('views', path.join(__dirname, 'views'));
+// Register Handlebars as view engine
+const {engine} = require('express-handlebars');
+app.engine('hbs', engine({
+  extname: '.hbs',
+  defaultLayout: 'main',
+  layoutsDir: path.join(__dirname, 'views/layouts'),
+  partialsDir: path.join(__dirname, 'views/partials')
+}));
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views')); // Aggiungi questa riga per indicare la cartella delle viste
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -39,12 +41,6 @@ app.use('/oscar', oscarRoutes);
 app.use('/actors', actorsRoutes);
 app.use('/search', searchRoutes);
 app.use('/members', memberRoutes);
-
-
-// Rotta per la home
-app.get('/', function(req, res) {
-  res.render('pages/home', { title: 'Home Page' });
-});
 
 // Catch 404 e gestione errori
 app.use(function(req, res, next) {

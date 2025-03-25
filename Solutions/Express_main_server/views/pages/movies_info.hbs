@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{movie.title}}</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-
-{{> navbar}} <!-- Include la navbar -->
-
-<div class="movie-container">
-    <div class="movie-card-large" data-id="{{movie.id}}">
-        <img class="movie-poster-large" src="{{movie.posterUrl}}" alt="{{movie.title}}">
-        <div class="movie-info">
-            <h1>{{movie.title}}</h1>
-            <p class="movie-year"><strong>Anno:</strong> {{movie.date}}</p>
-            <p class="movie-tagline"><strong>Tagline:</strong> {{movie.tagline}}</p>
-            <p class="movie-description"><strong>Trama:</strong> {{movie.description}}</p>
-            <p class="movie-rating"><strong>Rating:</strong> {{movie.rating}}</p>
-            <p class="movie-duration"><strong>Durata:</strong> {{movie.minute}} minuti</p>
+<section class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{movie.posterUrl}}" class="img-fluid rounded-start" alt="{{movie.title}}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title">{{movie.title}}</h1>
+                            <p class="card-text"><strong>Anno:</strong> {{movie.date}}</p>
+                            <p class="card-text"><strong>Tagline:</strong> {{movie.tagline}}</p>
+                            <p class="card-text"><strong>Trama:</strong> {{movie.description}}</p>
+                            <p class="card-text"><strong>Rating:</strong> {{movie.rating}}</p>
+                            <p class="card-text"><strong>Durata:</strong> {{movie.minute}} minuti</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="/" class="btn btn-primary">Torna alla lista</a>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<a href="/" class="back-button">Torna alla lista</a>
-
-{{> footer}} <!-- Include il footer -->
-
-<!-- Importazione del file JavaScript -->
-<script src="/javascripts/movies.js"></script>
-
-</body>
-</html>

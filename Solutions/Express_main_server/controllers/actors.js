@@ -47,7 +47,10 @@ async function getAllActors(req, res) {
         }, {});
 
 
-        res.render('pages/actors', { groupedActors });
+        res.render('pages/actors', {
+            layout: 'main', // Aggiunto layout esplicito
+            groupedActors
+        });
 
     } catch (error) {
         console.error('Errore nel recupero dei dati:', error);

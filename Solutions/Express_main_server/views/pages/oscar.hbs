@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wookie</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script defer src="/javascripts/oscar.js"></script> <!-- Collegamento allo script -->
-</head>
-
-<body>
-{{> navbar}} <!-- Navbar in partials -->
-
 <section class="oscar-section">
     {{#each groupedAwards}}
         <div class="category-group">
@@ -34,7 +21,3 @@
     {{/each}}
 </section>
 
-{{> footer}} <!-- Footer in partials -->
-
-</body>
-</html>
