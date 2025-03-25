@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.studios;
 
+import com.andrianigiordano.springboot.movies.Movies;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,10 @@ public class Studios {
 
     @Column(name = "studio", nullable = false)
     private String studio;
+
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Movies movie;
 
     public Studios() {
     }

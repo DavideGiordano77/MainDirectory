@@ -1,16 +1,23 @@
 package com.andrianigiordano.springboot.themes;
 
+import com.andrianigiordano.springboot.movies.Movies;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "themes_data")
 public class Themes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "theme", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Movies movie;
+
+    @Column(name = "theme") // Altri campi relativi ai temi
     private String theme;
 
     public Themes() {

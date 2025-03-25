@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.countries;
 
+import com.andrianigiordano.springboot.movies.Movies;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,10 @@ public class Countries {
 
     @Column(name = "country")
     private String country;
+
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Movies movie;
 
     public Countries() {
     }

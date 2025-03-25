@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.crew;
 
+import com.andrianigiordano.springboot.movies.Movies;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,10 @@ public class Crew {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Movies movie;
 
     public Crew() {
     }

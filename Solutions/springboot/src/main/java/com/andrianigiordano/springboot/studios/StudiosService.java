@@ -1,5 +1,7 @@
 package com.andrianigiordano.springboot.studios;
 
+import com.andrianigiordano.springboot.languages.Languages;
+import com.andrianigiordano.springboot.languages.LanguagesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,12 +11,8 @@ import java.util.Optional;
 @Service
 public class StudiosService {
 
-    private final StudiosRepository studiosRepository;
-
     @Autowired
-    public StudiosService(StudiosRepository studiosRepository) {
-        this.studiosRepository = studiosRepository;
-    }
+    private StudiosRepository studiosRepository;
 
 
 }

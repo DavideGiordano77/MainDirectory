@@ -1,27 +1,93 @@
 <section class="container py-4">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card shadow-lg">
+            <div class="card bg-dark text-light shadow-lg">
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-md-3 d-flex align-items-center">
                         <img src="{{movie.posterUrl}}" class="img-fluid rounded-start" alt="{{movie.title}}">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <div class="card-body">
-                            <h1 class="card-title">{{movie.title}}</h1>
-                            <p class="card-text"><strong>Anno:</strong> {{movie.date}}</p>
-                            <p class="card-text"><strong>Tagline:</strong> {{movie.tagline}}</p>
-                            <p class="card-text"><strong>Trama:</strong> {{movie.description}}</p>
-                            <p class="card-text"><strong>Rating:</strong> {{movie.rating}}</p>
-                            <p class="card-text"><strong>Durata:</strong> {{movie.minute}} minuti</p>
+                            <h2 class="card-title">{{movie.title}}</h2>
+                            <p><strong>Anno:</strong> {{movie.date}}</p>
+                            <p><strong>Tagline:</strong> {{movie.tagline}}</p>
+                            <p><strong>Trama:</strong> {{movie.description}}</p>
+                            <p><strong>Rating:</strong> {{movie.rating}}</p>
+                            <p><strong>Durata:</strong> {{movie.minute}} min</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-                <a href="/" class="btn btn-primary">Torna alla lista</a>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mt-4 bg-dark">
+                <li class="nav-item">
+                    <a class="nav-link active text-light bg-secondary" data-bs-toggle="tab" href="#infoTab">Informazioni</a>
+                </li>
+            </ul>
+
+            <div class="tab-content mt-3">
+                <!-- Info extra -->
+                <div id="infoTab" class="tab-pane fade show active">
+                    <h4>Informazioni</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Cast e Crew</h5>
+                            <ul class="list-group bg-dark">
+                                {{#each (split crew ', ')}}
+                                    <li class="list-group-item bg-dark text-light">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Paesi di produzione</h5>
+                            <ul class="list-group bg-dark">
+                                {{#each (split countries ', ')}}
+                                    <li class="list-group-item bg-dark text-light">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h5>Lingue</h5>
+                            <ul class="list-group bg-dark">
+                                {{#each (split languages ', ')}}
+                                    <li class="list-group-item bg-dark text-light">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Generi</h5>
+                            <ul class="list-group bg-dark">
+                                {{#each (split genres ', ')}}
+                                    <li class="list-group-item bg-dark text-light">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h5>Studi di produzione</h5>
+                            <ul class="list-group bg-dark">
+                                {{#each (split studios ', ')}}
+                                    <li class="list-group-item bg-dark text-light">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Temi</h5>
+                            <ul class="list-group bg-dark">
+                                {{#each (split themes ', ')}}
+                                    <li class="list-group-item bg-dark text-light">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
-

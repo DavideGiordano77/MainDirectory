@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs'); // Importa Handlebars
+const handlebars = require('handlebars');
+
 
 var indexRouter = require('./routes/home'); // Import del router
 var usersRouter = require('./routes/users');
@@ -25,6 +27,9 @@ app.engine('hbs', engine({
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views')); // Aggiungi questa riga per indicare la cartella delle viste
+handlebars.registerHelper('split', function (input, delimiter) {
+  return input ? input.split(delimiter) : [];
+});
 
 
 app.use(logger('dev'));

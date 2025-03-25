@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.languages;
 
+import com.andrianigiordano.springboot.movies.Movies;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,10 @@ public class Languages {
 
     @Column(name = "language")
     private String language;
+
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Movies movie;
 
     public Languages() {
     }

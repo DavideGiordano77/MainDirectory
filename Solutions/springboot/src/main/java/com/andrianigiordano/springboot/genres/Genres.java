@@ -1,5 +1,6 @@
 package com.andrianigiordano.springboot.genres;
 
+import com.andrianigiordano.springboot.movies.Movies;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,10 @@ public class Genres {
 
     @Column(name = "genre")
     private String genre;
+
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Movies movie;
 
     public Genres() {
     }
