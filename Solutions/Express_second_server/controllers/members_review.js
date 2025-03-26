@@ -49,3 +49,19 @@ exports.getCriticDetails = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+exports.getReviewsByMovie = async (req, res) => {
+    try {
+        const movieName = req.params.movieName;
+        const reviews = await MembersReview.find({ movie_title: movieName });
+        console.log(reviews);
+
+        if (!reviews || reviews.length === 0) {
+            return res.status(404).json({ message: 'Nessuna recensione trovata per questo film.' });
+        }
+
+        res.json(reviews);
+    } catch (error) {
+        res.status(500).json({ message: 'Errore nel recupero delle recensioni.', error });
+    }
+};

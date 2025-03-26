@@ -12,6 +12,7 @@ import java.util.Optional;
 public interface CrewRepository extends JpaRepository<Crew, Long> {
     List<Crew> findAllById(Long movieId);
 
-    @Query("SELECT STRING_AGG(c.name, ', ') FROM Crew c WHERE c.movie.id = :movieId")
+    @Query("SELECT STRING_AGG(CONCAT(c.name, ' (', c.role, ')'), ', ') FROM Crew c WHERE c.movie.id = :movieId")
     String findByMovieId(Long movieId);
+
 }
