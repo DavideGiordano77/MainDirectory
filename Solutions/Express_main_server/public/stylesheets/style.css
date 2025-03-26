@@ -27,3 +27,40 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.custom-card {
+  background-color: rgba(0, 0, 0, 0.8); /* Verde scuro */
+  color: white; /* Testo bianco per contrasto */
+  height: 100%; /* Garantisce che la card si espanda correttamente */
+  display: flex;
+  flex-direction: column; /* Per allineare gli elementi verticalmente */
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.card-body .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.row.d-flex {
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+
+/* Titolo della categoria */
+.category-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #111;
+  text-transform: uppercase; /* Rendere il testo in maiuscolo */
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
