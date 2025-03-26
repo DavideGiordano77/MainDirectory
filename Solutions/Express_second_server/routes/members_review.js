@@ -11,6 +11,10 @@ router.get('/members', membersReviewsController.getMembers);
 router.get('/members/:critic_name', membersReviewsController.getCriticDetails);
 
 
-router.get('/reviews', membersReviewsController.getReviewsByMovie);
+router.get('/reviews/:movieName/:releaseDate', membersReviewsController.getReviewsByMovie);
+
+
+router.post('/reviews/add', membersReviewsController.addReview);
+
 
 module.exports = router;

@@ -27,6 +27,4 @@ exports.init = function(io) {
 /**
 @TODO
  * Documentazione
- * Inserimento recensione nel database
- * Autore recensioni in movies mancante
  */

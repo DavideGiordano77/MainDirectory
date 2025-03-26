@@ -1,4 +1,5 @@
 const MembersReview = require('../models/members_review');
+const {all} = require("express/lib/application");
 
 exports.getMembers = async (req, res) => {
     try {
@@ -50,18 +51,57 @@ exports.getCriticDetails = async (req, res) => {
     }
 };
 
-exports.getReviewsByMovie = async (req, res) => {
+exports.getReviewsByMovie = async (movieName, releaseDate) => {
     try {
-        const movieName = req.params.movieName;
-        const reviews = await MembersReview.find({ movie_title: movieName });
-        console.log(reviews);
+        const releaseDateObj = new Date(releaseDate);
+        const releaseDateFormatted = releaseDateObj.toISOString().split('T')[0]; // "YYYY-MM-DD"
 
-        if (!reviews || reviews.length === 0) {
-            return res.status(404).json({ message: 'Nessuna recensione trovata per questo film.' });
-        }
+        const reviews = await MembersReview.find({
+            movie_title: { $regex: new RegExp(`^${movieName}$`, 'i') },
+            review_date: {
+                $gte: releaseDateFormatted, // Data di rilascio o dopo
+                $lte: '2025-12-31' // Un eventuale limite superiore
+            }
+        }).select('movie_title critic_name review_type review_score review_date review_content');
 
-        res.json(reviews);
+        // Se non ci sono recensioni, restituisce semplicemente un array vuoto
+        return { status: 200, data: reviews || [] };
+
     } catch (error) {
-        res.status(500).json({ message: 'Errore nel recupero delle recensioni.', error });
+        return { status: 500, data: { message: 'Errore nel recupero delle recensioni.', error } };
+    }
+};
+
+exports.addReview = async (req, res) => {
+    const {
+        movie_title,
+        critic_name,
+        top_critic,
+        publisher_name,
+        review_type,
+        review_score,
+        review_date,
+        review_content,
+        rotten_tomatoes_link
+    } = req.body;
+
+    const newReview = new MembersReview({
+        movie_title,
+        critic_name,
+        top_critic: top_critic === 'on',  // Perché un checkbox invia "on" come valore
+        publisher_name,
+        review_type,
+        review_score,
+        review_date,
+        review_content,
+        rotten_tomatoes_link
+    });
+
+    try {
+        await newReview.save();  // Usa async/await per salvare la recensione
+        res.redirect("http://localhost:3000/movies/get-all-movies");
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Errore nel salvataggio della recensione' });
     }
 };

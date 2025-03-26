@@ -27,35 +27,33 @@ async function getAllInfo(req, res) {
             AXIOS.get(`${JAVA_SPRING_SERVER_URL}/get-themes-by-id?movieId=` + movieId)
         ]);
 
+        const movieData = endpoints[0].data;
+        const movieName = movieData.title; // Assumo che il nome del film sia memorizzato in `title`
+        const releaseDate = movieData.date; // Assumiamo che la data di uscita sia in `releaseDate`
+
+        const reviewsResponse = await AXIOS.get(`http://localhost:3001/reviews/${encodeURIComponent(movieName)}/${encodeURIComponent(releaseDate)}`);
 
         const data = {
-            movie: endpoints[0].data,
+            movie: movieData,
             crew: endpoints[1].data,
             countries: endpoints[2].data,
             languages: endpoints[3].data,
             genres: endpoints[4].data,
             studios: endpoints[5].data,
             themes: endpoints[6].data,
+            reviews: reviewsResponse.data
         };
 
         console.log('Dati ricevuti:', data);
         console.log('Movie ID atteso:', movieId);
 
-        // Verifica che tutti gli ID dei film corrispondano
-        const allMovieIdsMatch = Object.values(data).every(entry =>
-            Array.isArray(entry)
-                ? entry.every(item => item.id == movieId)
-                : entry.id == movieId
-        );
-
-            res.render('pages/movies_info', data);
+        res.render('pages/movies_info', data);
 
     } catch (error) {
-        console.error('Error fetching movies from Spring API:', error);
-        res.status(500).render('pages/error', { message: 'Dati non disponibili.' });
+        console.error('Error fetching data:', error);
+        res.status(500).json({ error: 'Failed to fetch movie information' });
     }
 }
-
 
 module.exports = {
     getAllMovies,

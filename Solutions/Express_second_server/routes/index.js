@@ -30,6 +30,13 @@ router.get('/members/:critic_name', async (req, res, next) => {
   }
 });
 
+router.get('/reviews/:movieName/:releaseDate', async (req, res) => {
+  const { movieName, releaseDate } = req.params;
+  const result = await MEMBERS_REVIEW_CONTROLLER.getReviewsByMovie(movieName, releaseDate);
+  res.status(result.status).json(result.data);
+});
+
+router.post('/reviews/add', MEMBERS_REVIEW_CONTROLLER.addReview);
 
 // Esportiamo il router
 module.exports = router;

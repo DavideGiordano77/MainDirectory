@@ -27,6 +27,13 @@
                 <li class="nav-item">
                     <a class="nav-link text-light bg-secondary" data-bs-toggle="tab" href="#castTab">Cast e Crew</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light bg-secondary" data-bs-toggle="tab" href="#reviewsTab">Recensioni</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light bg-secondary" data-bs-toggle="tab" href="#addReviewTab">Aggiungi Recensione</a>
+                </li>
+
             </ul>
 
             <div class="tab-content mt-3">
@@ -90,6 +97,89 @@
                         {{/each}}
                     </ul>
                 </div>
+
+                <div id="reviewsTab" class="tab-pane fade">
+                    <h3>Recensioni</h3>
+                    {{#if reviews.length}}
+                        <ul class="list-group bg-dark">
+                            {{#each reviews}}
+                                <li class="list-group-item bg-dark text-light">
+                                    <p><strong>Autore:</strong> {{this.critic_name}}</p>
+                                    <p><strong>Data:</strong> {{this.review_date}}</p>
+                                    <p><strong>Valutazione:</strong> {{this.review_score}}/10</p>
+                                    <p>{{this.review_content}}</p>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    {{else}}
+                        <p class="text-light">Nessuna recensione disponibile per questo film.</p>
+                    {{/if}}
+                </div>
+
+                <div id="addReviewTab" class="tab-pane fade">
+                    <h3>Aggiungi una Recensione</h3>
+                    <form action="http://localhost:3001/reviews/add" method="POST">
+                        <!-- Nascondi il titolo del film -->
+                        <input type="hidden" name="movie_title" value="{{movie.title}}">
+
+                        <!-- Link Rotten Tomatoes -->
+                        <div class="mb-3">
+                            <label class="form-label">Link Rotten Tomatoes</label>
+                            <input type="text" name="rotten_tomatoes_link" class="form-control bg-dark text-light" required>
+                        </div>
+
+                        <!-- Nome del critico -->
+                        <div class="mb-3">
+                            <label class="form-label">Nome Critico</label>
+                            <input type="text" name="critic_name" class="form-control bg-dark text-light" required>
+                        </div>
+
+                        <!-- Top Critic (checkbox) -->
+                        <div class="mb-3">
+                            <label class="form-label">Critico Top</label>
+                            <input type="checkbox" name="top_critic" class="form-check-input">
+                            <small class="text-light">Seleziona se il critico è un critico top su Rotten Tomatoes</small>
+                        </div>
+
+                        <!-- Testata Giornalistica -->
+                        <div class="mb-3">
+                            <label class="form-label">Testata Giornalistica</label>
+                            <input type="text" name="publisher_name" class="form-control bg-dark text-light" required>
+                        </div>
+
+                        <!-- Tipo di recensione -->
+                        <div class="mb-3">
+                            <label class="form-label">Tipo di Recensione</label>
+                            <select name="review_type" class="form-control bg-dark text-light">
+                                <option value="Fresh">Fresh</option>
+                                <option value="Rotten">Rotten</option>
+                            </select>
+                        </div>
+
+                        <!-- Punteggio della recensione -->
+                        <div class="mb-3">
+                            <label class="form-label">Punteggio (0-10)</label>
+                            <input type="number" name="review_score" min="0" max="10" class="form-control bg-dark text-light" required>
+                        </div>
+
+                        <!-- Data della recensione -->
+                        <div class="mb-3">
+                            <label class="form-label">Data della Recensione</label>
+                            <input type="date" name="review_date" class="form-control bg-dark text-light" required>
+                        </div>
+
+                        <!-- Contenuto della recensione -->
+                        <div class="mb-3">
+                            <label class="form-label">Recensione</label>
+                            <textarea name="review_content" class="form-control bg-dark text-light" rows="4" required></textarea>
+                        </div>
+
+                        <!-- Bottone di invio -->
+                        <button type="submit" class="btn btn-primary">Invia Recensione</button>
+                    </form>
+                </div>
+
+
             </div>
         </div>
     </div>
