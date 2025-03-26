@@ -1,8 +1,7 @@
-
 exports.init = function(io) {
 
     // the chat namespace
-    const chat= io
+    const chat = io
         .of('/chat')
         .on('connection', function (socket) {
             try {
@@ -18,44 +17,16 @@ exports.init = function(io) {
                     chat.to(room).emit('chat', room, userId, chatText);
                 });
 
-                socket.on('disconnect', function(){
-                    console.log('someone disconnected');
-                });
-            } catch (e) {
-            }
-        });
-
-    // the news namespace
-    const news= io
-        .of('/news')
-        .on('connection', function (socket) {
-            try {
-                /**
-                 * it creates or joins a room
-                 */
-                socket.on('create or join', function (room, userId) {
-                    socket.join(room);
-                    socket.broadcast.to(room).emit('joined', room, userId);
-                });
-
-                socket.on('news', function (room, userId, chatText) {
-                    socket.broadcast.to(room).emit('news', room, userId, chatText);
-                });
-
-                socket.on('disconnect', function(){
+                socket.on('disconnect', function () {
                     console.log('someone disconnected');
                 });
             } catch (e) {
             }
         });
 }
-
 /**
 @TODO
- * Movies-info: da aggiungere le recensioni @Dade
- * Critics-info: migliorare il layout + poster film @Dade
- * Search-Actors: collegare link
- * Search-Movies: collegare link
- * Socket:da fare (chat da fare) @Insieme
- * Recensioni che vengono salvate in mongo
+ * Documentazione
+ * Inserimento recensione nel database
+ * Autore recensioni in movies mancante
  */

@@ -14,6 +14,7 @@ const oscarRoutes = require('./routes/oscar');
 const actorsRoutes = require('./routes/actors');
 const searchRoutes = require('./routes/search');
 const memberRoutes = require('./routes/members');
+const chatRoutes = require('./routes/chat');
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use('/oscar', oscarRoutes);
 app.use('/actors', actorsRoutes);
 app.use('/search', searchRoutes);
 app.use('/members', memberRoutes);
+app.use('/chat', chatRoutes);
 
 // Catch 404 e gestione errori
 app.use(function(req, res, next) {
