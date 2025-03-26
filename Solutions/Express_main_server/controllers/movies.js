@@ -9,7 +9,7 @@ async function getAllMovies(req, res) {
         res.render('pages/movies', { movies }); // Passi i dati alla vista Handlebars
     } catch (error) {
         console.error('Error fetching movies from Spring API:', error);
-        res.status(500).json({ error: 'Failed to fetch movies' });
+        res.status(500).render('pages/error', { message: 'Dati non disponibili' });
     }
 }
 
@@ -27,22 +27,16 @@ async function getAllInfo(req, res) {
             AXIOS.get(`${JAVA_SPRING_SERVER_URL}/get-themes-by-id?movieId=` + movieId)
         ]);
 
-        const movieData = endpoints[0].data;
-        const movieName = movieData.name; // Assumo che il nome del film sia memorizzato in `name`
-
-        const reviewsResponse = await AXIOS.get(`http://localhost:3001/reviews?movieName=` + encodeURIComponent(movieName));
 
         const data = {
-            movie: movieData,
+            movie: endpoints[0].data,
             crew: endpoints[1].data,
             countries: endpoints[2].data,
             languages: endpoints[3].data,
             genres: endpoints[4].data,
             studios: endpoints[5].data,
             themes: endpoints[6].data,
-            reviews: reviewsResponse.data // Aggiunto qui
         };
-
 
         console.log('Dati ricevuti:', data);
         console.log('Movie ID atteso:', movieId);
@@ -58,7 +52,7 @@ async function getAllInfo(req, res) {
 
     } catch (error) {
         console.error('Error fetching movies from Spring API:', error);
-        res.status(500).json({ error: 'Failed to fetch movies' });
+        res.status(500).render('pages/error', { message: 'Dati non disponibili.' });
     }
 }
 

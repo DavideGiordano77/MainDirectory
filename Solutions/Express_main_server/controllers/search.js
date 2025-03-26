@@ -12,7 +12,7 @@ async function search(req, res) {
             // Se l'utente cerca un film
             const response = await AXIOS.get(`http://localhost:8080/search-movies?query=${encodeURIComponent(query)}`);
             movies = response.data.movies || [];  // Assegna i film, evitando undefined
-            return res.render('pages/search-movies', { movies, query }); // Renderizza solo film
+            return res.render('pages/search_movies', { movies, query }); // Renderizza solo film
         }
 
         if (type === 'actor') {
@@ -47,14 +47,14 @@ async function search(req, res) {
             }
 
             console.log(actors)
-            return res.render('pages/search-actors', { actors, movies, query }); // Renderizza solo attori
+            return res.render('pages/search_actors', { actors, movies, query }); // Renderizza solo attori
         }
 
         throw new Error('Tipo di ricerca non valido');
 
     } catch (error) {
         console.error('Errore durante la ricerca:', error);
-        res.render('pages/error', { query, error: 'Errore durante la ricerca.' });
+        res.render('pages/error', { query, error: 'Dati non disponibili.' });
     }
 }
 
