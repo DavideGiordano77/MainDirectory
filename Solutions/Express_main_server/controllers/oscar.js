@@ -5,12 +5,13 @@ const axios = require("axios");
 async function getTop100Oscars(req, res) {
     try {
 
-        // Recupera i Top 100 Oscar
-        const response = await axios.get(`${SPRING_BOOT_API}/top100`);
-        const oscarAwards = response.data;
+        const [oscarResponse, moviesResponse] = await Promise.all([
+            axios.get(`${SPRING_BOOT_API}/top100`),
+            axios.get(`http://localhost:8080/movies/top100`)
+        ]);
 
-        // Recupera tutti i film con i poster
-        const moviesResponse = await axios.get(`http://localhost:8080/movies/top100`);
+        // Estrarre i dati dalle risposte
+        const oscarAwards = oscarResponse.data;
         const movies = moviesResponse.data;
 
         const enrichedAwards = oscarAwards
@@ -23,8 +24,6 @@ async function getTop100Oscars(req, res) {
                 } : null; // Se non ha un poster, restituisce null
             })
             .filter(award => award !== null); // Rimuove i film senza poster
-
-
 
         // Raggruppamento per categoria
         const groupedAwards = enrichedAwards.reduce((acc, award) => {

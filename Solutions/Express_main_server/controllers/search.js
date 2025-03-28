@@ -30,7 +30,6 @@ async function search(req, res) {
                         return res.data;  // Restituisci i dati validi
                     } catch (error) {
                         if (error.response && error.response.status === 404) {
-                            console.log(`Film non trovato per l'ID attore ${id}, salto la ricerca`);
                             return null;  // Ignora gli errori 404 e continua
                         } else {
                             console.error('Errore inaspettato:', error);

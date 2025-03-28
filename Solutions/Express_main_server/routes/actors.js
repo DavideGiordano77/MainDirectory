@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const ACTORS_CONTROLLER= require('../controllers/actors');
+const setupSwagger = require('./swagger');
+
+setupSwagger(router);
 
 /**
  * @swagger

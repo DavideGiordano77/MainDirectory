@@ -6,7 +6,7 @@ const MOVIES_CONTROLLER= require('../controllers/movies');
  * @swagger
  * /movies/get-all-movies:
  *     get:
- *       summary: Ottiene tutti i film
+ *       summary: Ottiene tutti i film della Home della sezione Movies
  *       description: Recupera la lista di tutti i film disponibili dal server Java Spring.
  *       tags:
  *         - Movies

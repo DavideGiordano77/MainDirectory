@@ -53,7 +53,6 @@ async function getAllActors(req, res) {
         });
 
     } catch (error) {
-        console.error('Errore nel recupero dei dati:', error);
         res.status(500).send('Errore nel recupero dei dati');
     }
 }
@@ -93,12 +92,9 @@ async function getAllInfo(req, res) {
             name: name
         });
     } catch (error) {
-        console.error("Errore nel recupero dei dettagli dell'attore:", error.message);
         res.status(500).json({ error: "Impossibile recuperare i dettagli dell'attore" });
     }
 
 }
-
-
 
 module.exports = {getAllActors, getAllInfo};

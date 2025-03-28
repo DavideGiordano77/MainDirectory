@@ -7,7 +7,6 @@ var logger = require('morgan');
 const handlebars = require('handlebars');
 const setupSwagger = require('./routes/swagger');
 
-
 var indexRouter = require('./routes/home'); // Import del router
 var usersRouter = require('./routes/users');
 const moviesRoutes = require('./routes/movies');
