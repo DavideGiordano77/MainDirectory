@@ -7,7 +7,7 @@ const MOVIES_CONTROLLER= require('../controllers/movies');
  * /movies/get-all-movies:
  *     get:
  *       summary: Ottiene tutti i film della Home della sezione Movies
- *       description: Recupera la lista di tutti i film disponibili dal server Java Spring.
+ *       description: Recupera la lista di tutti i film disponibili.
  *       tags:
  *         - Movies
  *       responses:
@@ -21,17 +21,23 @@ const MOVIES_CONTROLLER= require('../controllers/movies');
  *                   type: object
  *                   properties:
  *                     id:
- *                       type: integer
- *                       example: 1
- *                     title:
+ *                       type: long
+ *                     name:
  *                       type: string
- *                       example: "Inception"
- *                     releaseDate:
+ *                     year:
+ *                       type: int
+ *                     tagline:
  *                       type: string
- *                       format: long
- *                       example: "2010"
+ *                     description:
+ *                       type: string
+ *                     posterUrl:
+ *                       type: string
+ *                     rating:
+ *                       type: double
+ *                     minute:
+ *                       type: int
  *         "500":
- *           description: Errore nel recupero dei dati
+ *           description: Dati non disponibili
  *           content:
  *             application/json:
  *               schema:
@@ -39,109 +45,92 @@ const MOVIES_CONTROLLER= require('../controllers/movies');
  *                 properties:
  *                   message:
  *                     type: string
- *                     example: "Dati non disponibili"
  */
 router.get('/get-all-movies', MOVIES_CONTROLLER.getAllMovies);
 
 /**
  * @swagger
  * /movies/get-all-info/{id}:
- *     get:
- *       summary: Ottiene tutte le informazioni su un film
- *       description: Recupera informazioni dettagliate su un film specifico, tra cui cast, generi, lingue e recensioni.
- *       tags:
- *         - Movies
- *       parameters:
- *         - name: id
- *           in: path
- *           required: true
- *           description: ID del film da recuperare
- *           schema:
- *             type: integer
- *             example: 1
- *       responses:
- *         "200":
- *           description: Informazioni dettagliate sul film
- *           content:
- *             application/json:
- *               schema:
- *                 type: object
- *                 properties:
- *                   movie:
+ *  get:
+ *     summary: Ottiene tutte le informazioni su un film
+ *     description: Recupera informazioni dettagliate su un film specifico, tra cui cast, generi, lingue e recensioni.
+ *     tags:
+ *       - Movies
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: ID del film da recuperare
+ *         schema:
+ *           type: integer
+ *           example: 1000004
+ *     responses:
+ *       "200":
+ *         description: Informazioni dettagliate sul film
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 movie:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                     title:
+ *                       type: string
+ *                     date:
+ *                       type: integer
+ *                     tagline:
+ *                       type: string
+ *                     description:
+ *                       type: string
+ *                     posterUrl:
+ *                       type: string
+ *                     rating:
+ *                       type: number
+ *                     minute:
+ *                       type: integer
+ *                 crew:
+ *                   type: string
+ *                 countries:
+ *                   type: string
+ *                 languages:
+ *                   type: string
+ *                 genres:
+ *                   type: string
+ *                 studios:
+ *                   type: string
+ *                 themes:
+ *                   type: string
+ *                 reviews:
+ *                   type: array
+ *                   items:
  *                     type: object
  *                     properties:
  *                       id:
- *                         type: integer
- *                         example: 1
- *                       title:
  *                         type: string
- *                         example: "Inception"
- *                       date:
+ *                       movie_title:
  *                         type: string
- *                         format: date
- *                         example: "2010-07-16"
- *                   crew:
- *                     type: array
- *                     items:
- *                       type: object
- *                       properties:
- *                         name:
- *                           type: string
- *                           example: "Christopher Nolan"
- *                         role:
- *                           type: string
- *                           example: "Director"
- *                   countries:
- *                     type: array
- *                     items:
- *                       type: string
- *                       example: "USA"
- *                   languages:
- *                     type: array
- *                     items:
- *                       type: string
- *                       example: "English"
- *                   genres:
- *                     type: array
- *                     items:
- *                       type: string
- *                       example: "Sci-Fi"
- *                   studios:
- *                     type: array
- *                     items:
- *                       type: string
- *                       example: "Warner Bros."
- *                   themes:
- *                     type: array
- *                     items:
- *                       type: string
- *                       example: "Dreams"
- *                   reviews:
- *                     type: array
- *                     items:
- *                       type: object
- *                       properties:
- *                         user:
- *                           type: string
- *                           example: "JohnDoe"
- *                         rating:
- *                           type: number
- *                           example: 4.5
- *                         comment:
- *                           type: string
- *                           example: "Amazing movie!"
- *         "400":
- *           description: ID del film non valido
- *         "500":
- *           description: Errore nel recupero dei dati
- *           content:
- *             application/json:
- *               schema:
- *                 type: object
- *                 properties:
- *                   message:
- *                     type: string
- *                     example: "Dati non disponibili"
+ *                       critic_name:
+ *                         type: string
+ *                       review_type:
+ *                         type: string
+ *                       review_score:
+ *                         type: number
+ *                       review_date:
+ *                         type: string
+ *                       review_content:
+ *                         type: string
+ *       "500":
+ *         description: Dati non disponibili
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
  */
 router.get('/get-all-info/:id', MOVIES_CONTROLLER.getAllInfo);
 
