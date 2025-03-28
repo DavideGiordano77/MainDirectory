@@ -39,7 +39,6 @@ router.get('/members', async (req, res) => {
         // I dati ricevuti dal server
         const { topCritics, allCritics } = response.data;
 
-
         // Render della pagina con i dati ricevuti
         res.render('pages/members', {
             topCritics,  // Passa l' array dei top critics alla view
@@ -53,40 +52,65 @@ router.get('/members', async (req, res) => {
 /**
  * @swagger
  * /members/{critic_name}:
- *     get:
- *       summary: Ottiene i dettagli di un critico
- *       description: Recupera i film recensiti da un critico specifico
- *       tags:
- *         - Members
- *       parameters:
- *         - in: path
- *           name: critic_name
- *           required: true
- *           schema:
- *             type: string
- *           description: Nome del critico di cui ottenere le recensioni
- *       responses:
- *         '200':
- *           description: Dati del critico recuperati con successo
- *           content:
- *             application/json:
- *               schema:
- *                 type: object
- *                 properties:
- *                   criticName:
- *                     type: string
- *                   movies:
- *                     type: array
- *                     items:
- *                       type: object
- *                       properties:
- *                         title:
- *                           type: string
- *                         rating:
- *                           type: number
- *         '500':
- *           description: Errore interno del server
- * */
+ *   get:
+ *     summary: Ottiene i dettagli di un critico
+ *     description: Recupera i film recensiti da un critico specifico
+ *     tags:
+ *       - Members
+ *     parameters:
+ *       - in: path
+ *         name: critic_name
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Nome del critico di cui ottenere le recensioni
+ *     responses:
+ *       '200':
+ *         description: Dati del critico recuperati con successo
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 criticName:
+ *                   type: string
+ *                   example: "Roger Ebert"
+ *                 reviews:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       rotten_tomatoes_link:
+ *                         type: string
+ *                         example: "https://www.rottentomatoes.com/m/inception/reviews"
+ *                       movie_title:
+ *                         type: string
+ *                         example: "Inception"
+ *                       critic_name:
+ *                         type: string
+ *                         example: "Roger Ebert"
+ *                       top_critic:
+ *                         type: boolean
+ *                         example: true
+ *                       publisher_name:
+ *                         type: string
+ *                         example: "Chicago Sun-Times"
+ *                       review_type:
+ *                         type: string
+ *                         example: "Fresh"
+ *                       review_score:
+ *                         type: string
+ *                         example: "9/10"
+ *                       review_date:
+ *                         type: string
+ *                         format: date
+ *                         example: "2010-07-16"
+ *                       review_content:
+ *                         type: string
+ *                         example: "A mind-bending thriller with stunning visuals and a great cast."
+ *       '500':
+ *         description: Errore interno del server
+ */
 
 // Rotta per ottenere i dettagli di un critico specifico
 router.get('/members/:critic_name', async (req, res) => {

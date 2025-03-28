@@ -3,7 +3,7 @@ var router = express.Router();
 
 /**
  * @swagger
- *  /:
+ *  /chat:
  *     get:
  *       summary: Ottiene la pagina principale della chat
  *       description: Restituisce la pagina della chat con il titolo "My Chat"

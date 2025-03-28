@@ -1,6 +1,6 @@
 <section class="critic py-5">
     <div class="container">
-        <h1 class="text-center mb-4">Recensioni di {{criticName}}</h1> <!-- Nome critico cliccabile -->
+        <h1 class="text-center mb-4">{{criticName}}'s reviews</h1>
 
         <div class="row justify-content-center">
             {{#if movies.reviews}}
@@ -11,10 +11,10 @@
                                 <div class="d-flex align-items-center mb-3">
                                     <div>
                                         <h3 class="card-title text-light">{{this.movie_title}}</h3>
-                                        <p><strong>Tipo di recensione:</strong> {{this.review_type}}</p>
-                                        <p><strong>Punteggio:</strong> {{this.review_score}}</p>
-                                        <p><strong>Data recensione:</strong> {{this.review_date}}</p>
-                                        <p><strong>Contenuto recensione:</strong> {{this.review_content}}</p>
+                                        <p><strong>Review's type:</strong> {{this.review_type}}</p>
+                                        <p><strong>Score:</strong> {{this.review_score}}</p>
+                                        <p><strong>Review type:</strong> {{this.review_date}}</p>
+                                        <p><strong>Content:</strong> {{this.review_content}}</p>
                                     </div>
                                 </div>
                             </li>
@@ -23,7 +23,7 @@
                 </div>
             {{else}}
                 <div class="col-12">
-                    <p class="text-center">Non sono state trovate recensioni per questo critico.</p>
+                    <p class="text-center">There aren't reviews found for this critic.</p>
                 </div>
             {{/if}}
         </div>
