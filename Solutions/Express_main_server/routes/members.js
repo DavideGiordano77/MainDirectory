@@ -2,6 +2,34 @@ const axios = require('axios');
 const express = require('express');
 const router = require("./home");
 
+/**
+ * @swagger
+ * /members:
+ *     get:
+ *       summary: Ottiene i primi tre top critici e altri dieci critici normali
+ *       description: Recupera la lista dei critici e dei top critici dal server secondario
+ *       tags:
+ *         - Members
+ *       responses:
+ *         '200':
+ *           description: Lista dei critici recuperata con successo
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   topCritics:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                   allCritics:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *         '500':
+ *           description: Errore interno del server
+ * */
+
 router.get('/members', async (req, res) => {
     try {
 
@@ -21,6 +49,44 @@ router.get('/members', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+/**
+ * @swagger
+ * /members/{critic_name}:
+ *     get:
+ *       summary: Ottiene i dettagli di un critico
+ *       description: Recupera i film recensiti da un critico specifico
+ *       tags:
+ *         - Members
+ *       parameters:
+ *         - in: path
+ *           name: critic_name
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: Nome del critico di cui ottenere le recensioni
+ *       responses:
+ *         '200':
+ *           description: Dati del critico recuperati con successo
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   criticName:
+ *                     type: string
+ *                   movies:
+ *                     type: array
+ *                     items:
+ *                       type: object
+ *                       properties:
+ *                         title:
+ *                           type: string
+ *                         rating:
+ *                           type: number
+ *         '500':
+ *           description: Errore interno del server
+ * */
 
 // Rotta per ottenere i dettagli di un critico specifico
 router.get('/members/:critic_name', async (req, res) => {
