@@ -3,8 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var hbs = require('hbs'); // Importa Handlebars
+//var hbs = require('hbs');
 const handlebars = require('handlebars');
+const setupSwagger = require('./routes/swagger');
 
 
 var indexRouter = require('./routes/home'); // Import del router
@@ -17,6 +18,7 @@ const memberRoutes = require('./routes/members');
 const chatRoutes = require('./routes/chat');
 
 var app = express();
+setupSwagger(app);
 
 // Register Handlebars as view engine
 const {engine} = require('express-handlebars');
@@ -60,7 +62,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('pages/error');
 });
-
-app.use(express.json());
 
 module.exports = app;

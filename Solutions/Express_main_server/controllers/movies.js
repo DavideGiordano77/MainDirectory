@@ -1,5 +1,4 @@
 const AXIOS = require('axios');
-const axios = require("axios");
 const JAVA_SPRING_SERVER_URL = 'http://localhost:8080/movies';
 
 async function getAllMovies(req, res) {
